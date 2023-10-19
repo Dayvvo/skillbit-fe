@@ -1,0 +1,81 @@
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Archivo:wght@400;500;600;700&display=swap');
+
+/* Global Styles */
+:root {
+  --primary-color: #5e55ef;
+  --white-color: #fff;
+  --dark-color: #000;
+  --hash:#827777;
+  --fadebg:#FAFAFA;
+  --borders:#9C9696;
+}
+
+.archivo {
+  font-family: 'Archivo', sans-serif;
+}
+
+.test-color {
+  color: #d1cfe2;
+}
+
+html {
+  font-size: 62.5%;
+}
+
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  font-family: 'Poppins', sans-serif !important;
+  font-size: 1.6rem;
+  line-height: 1.7;
+  background-color: var(--white-color);
+  color: var(--dark-color);
+  min-height: 100vh;
+  overflow-x: hidden;
+}
+
+
+ul {
+  list-style: none;
+}
+
+a {
+  text-decoration: none;
+  color: var(--dark-color);
+}
+
+button {
+  cursor: pointer;
+}
+
+input, select {
+  font-family: 'Poppins', sans-serif !important;
+}
+
+.text-primary {
+  color: var(--primary-color);
+}
+
+.text-center {
+  text-align: center;
+}
+
+.page-bottom-margin {
+  margin-bottom: 6rem;
+}
+
+.dontShowScrollBar{
+  -ms-overflow-style: none; /* IE 11 */
+  scrollbar-width: none; /* Firefox 64 */
+}
+
+.dontShowScrollBar::-webkit-scrollbar {
+  width: 0;
+}
+
+

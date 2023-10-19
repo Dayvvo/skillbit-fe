@@ -1,0 +1,37 @@
+import { useEffect, } from 'react';
+import useAuthActions from './useAuth';
+
+
+const useLogin = () => {
+
+  const {  auth, loginUser } = useAuthActions();
+
+
+  // const windowQueries = window.location.search;
+
+  // const urlSearch = new URLSearchParams(windowQueries);
+
+  // const queries = Object.fromEntries(urlSearch.entries()) || {};
+
+  const tokenInStorage = auth?.token? auth: JSON.parse(localStorage.getItem('peepsdb-auth'));
+
+  console.log('token in storage',tokenInStorage)
+
+  const {token,sign} = tokenInStorage || {}
+  // const tokenRef = useRef({
+  //   type: browserToken?.token ? 'sign' : '',
+  //   token: queries?.token || browserToken,
+  // });
+
+
+
+  useEffect(() => {
+    (() => {
+      loginUser(token,false,true)
+      
+    })();
+  }, [sign,token]);
+
+};
+
+export default useLogin;
