@@ -1,5 +1,6 @@
 @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800&display=swap');
 @import url('https://fonts.googleapis.com/css2?family=Archivo:wght@400;500;600;700&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Nunito:wght@400;700&family=Ubuntu:wght@700&display=swap');
 
 /* Global Styles */
 :root {
@@ -13,6 +14,14 @@
 
 .archivo {
   font-family: 'Archivo', sans-serif;
+}
+
+.ubuntu {
+  font-family: 'Ubuntu', sans-serif !important;
+}
+
+.nunito {
+  font-family: 'Nunito', sans-serif !important;
 }
 
 .test-color {

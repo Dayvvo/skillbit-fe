@@ -10,6 +10,7 @@ import {
   Grid,
   GridItem,
   Text,
+  Img,
   // Select,
   // Circle,
 } from "@chakra-ui/react"
@@ -24,88 +25,50 @@ import ActivityLogs from "../../components/logs/ActivityLogs"
 
 
 const AdminDashboard = () => {
-  const { profiles,logs,  useFetchProfiles } = useTeams()
-
-  const { loading,  } = useWidget()
-
-  // const [userLogs,setUserLogs] = useState({
-  //   today:[],
-  //   last2Days:[],
-  //   lastWeeek:[],
-  //   all:[]
-
-  // })
-
-
-  // const [logLimit, setLogLimit] = useState("today")
-
-  // useFetchProfiles()
-
-  // useAppAudits({ limit: logLimit, type: "" })
-
-  // if (loading) return <Spinner full />
-
-  const totalAccounts = profiles?.filter((profile) => !profile?.isSuspended)
-
-  const onboardedAccounts = totalAccounts?.filter(
-    (profile) => profile?.profileSetup
-  )
-
-  const suspendedAccounts = profiles?.filter((profile) => profile?.isSuspended)
-
-  // const userLogEntry = logs || [];
-
-  // console.log('logs from admin index',logs)
 
   return (
     <AdminAsideBar>
-      <Text className="archivo" fontSize={"22"} fontWeight="semibold">
-        Dashboard
+      <Text className="nunito" fontSize={"20px"} fontWeight="700">
+        Overview
       </Text>
 
       {/* <Text fontSize={"16"} color="gray.500">
         You can now see all onboarding information of your organization.
       </Text> */}
 
-      <Grid
-        templateColumns={{
-          base: "repeat(1, 1fr)",
-          md: "repeat(2, 1fr)",
-          lg: "repeat(3, 1fr)",
-        }}
+      <Flex
         mt={"10"}
         gap="8"
+        w='1000px'
+        bgColor={'#f7f7f7'}
+        borderRadius={'8px'}
       >
         <CustomStatisticCard
-          title={"Total accounts"}
-          color="#3D7DFF"
-          account={totalAccounts}
+          title={"Projects in progress"}
+          length={"25"}
         >
-          <HiUsers className="svg" color="#3D7DFF" fontSize={"22"} />
+          <Img src="/assets/profile-2user.png" alt="profile"  w='35px' />
         </CustomStatisticCard>
 
         <CustomStatisticCard
-          title={"Onboarded accounts"}
-          color="#4ECB71"
-          account={onboardedAccounts}
+          title={"Projects in progress"}
+          length={"25"}
         >
-          <FaUserCheck color="#4ECB71" fontSize={"22"} />
+          <Img src="/assets/profile-2user.png" alt="profile"  w='35px' />
         </CustomStatisticCard>
 
         <CustomStatisticCard
-          title={"Suspended accounts"}
-          color="#E4746C"
-          account={suspendedAccounts}
+          title={"Projects in progress"}
+          length={"25"}
         >
-          <FaUserSlash color="#E4746C" fontSize={"22"} />
+          <Img src="/assets/profile-2user.png" alt="profile"  w='35px' />
         </CustomStatisticCard>
-      </Grid>
+      </Flex>
 
-      {/** Activity logs */}
 
-      <Box>
+      {/* <Box>
         <ActivityLogs logs={logs} _user={"admin"} />
-      </Box>
+      </Box> */}
 
  
     </AdminAsideBar>
@@ -113,7 +76,7 @@ const AdminDashboard = () => {
 }
 
 // custom card
-const CustomStatisticCard = ({ title, children, account, color }) => {
+const CustomStatisticCard = ({ title, length, children }) => {
   return (
     <GridItem>
       <Flex
@@ -121,11 +84,6 @@ const CustomStatisticCard = ({ title, children, account, color }) => {
         gap="8"
         py={"6"}
         px={"8"}
-        bg="#fcfcfc"
-        border="1px solid #f7f7f7"
-        _hover={{
-          boxShadow: "sm",
-        }}
         borderRadius={"10px"}
         cursor={"pointer"}
       >
@@ -133,16 +91,16 @@ const CustomStatisticCard = ({ title, children, account, color }) => {
           {children}
         </Box>
         <Box>
-          <Text align="left" color={color} fontSize="20.97px" fontWeight="700">
-            {account?.length}
-          </Text>
           <Text
-            color={"#9EA2B1"}
-            className="archivo"
-            fontSize="15.87px"
+            color={"#ACACAC"}
+            className="nunito"
+            fontSize="14.5px"
             fontWeight="400"
           >
             {title}
+          </Text>
+          <Text align="left" color={'#333333'} fontSize="20.97px" fontWeight="700">
+            {length}
           </Text>
         </Box>
       </Flex>

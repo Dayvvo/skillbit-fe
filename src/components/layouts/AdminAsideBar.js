@@ -1,8 +1,6 @@
 import React from 'react';
 
-import { MdSpaceDashboard, MdWorkspaces, MdClose } from 'react-icons/md';
-import { BsUiChecks } from 'react-icons/bs';
-import { HiUsers } from 'react-icons/hi';
+import { MdSpaceDashboard, MdWorkspaces, MdClose, MdOutlinePayments, MdOutlineSettings } from 'react-icons/md';
 
 import {
   Flex,
@@ -13,11 +11,14 @@ import {
   GridItem,
   Show,
   Link,
+  Img,
 } from '@chakra-ui/react';
 import NavLayout from './NavLayout';
 import { useMenu } from '../../hooks/MenuProvider';
 
 import { NavLink, useLocation } from 'react-router-dom';
+import { BiMessageDots } from 'react-icons/bi';
+import { AiOutlineTransaction } from 'react-icons/ai';
 
 // Styles
 const navContainerStyles = {
@@ -26,14 +27,14 @@ const navContainerStyles = {
   display: 'inherit',
   borderRight: '5px solid transparent',
   _hover: {
-    background: '#fff',
+    background: '#FE4600',
     display: 'inherit',
-    borderRight: '5px solid #6d64fa',
+    borderRadius: '8px',
     p: {
-      color: 'primary.500',
+      color: '#fff',
     },
     svg: {
-      fill: 'primary.500',
+      fill: '#fff',
     },
   },
 };
@@ -83,17 +84,23 @@ const AdminAsideBar = ({ children }) => {
           >
             {/** logo and close icon */}
             <HStack alignItems="center" justify="space-between">
-              <Text
-                cursor="pointer"
-                fontFamily="logo"
-                fontSize="28px"
-                fontWeight="700"
-              >
-                PeepsDB
-              </Text>
+              <HStack>
+                <Img src='/skillbit-logo.svg' alt='logo' />
+                <Text
+                  color='#1A1A1A'
+                  className='ubuntu'
+                  cursor="pointer"
+                  fontFamily="logo"
+                  fontSize="20px"
+                  fontWeight="700"
+                >
+                  Skillbit
+                </Text>
+              </HStack>
               <Show below="lg">
                 <Box
                   fontSize="3xl"
+                  color={'#1a1a1a'}
                   cursor="pointer"
                   onClick={() => drawer.setMenuStatus((_prev) => !_prev)}
                 >
@@ -104,25 +111,35 @@ const AdminAsideBar = ({ children }) => {
 
             <Flex flexDir={'column'} align="start" gap="10" mt={'12'}>
               <CustomRouteLink
-                title={'Dashboard'}
+                title={'Overview'}
                 icon={<MdSpaceDashboard />}
                 route={'/'}
               />
               <CustomRouteLink
-                title={'Workspaces'}
+                title={'Projects'}
                 icon={<MdWorkspaces />}
                 route={'/workspace'}
               />
               <CustomRouteLink
-                title={'Audit Trail'}
-                icon={<BsUiChecks />}
-                active
+                title={'Transactions'}
+                icon={<AiOutlineTransaction />}
+                // active
                 route={'/admin/logs'}
               />
               <CustomRouteLink
-                title={'Users'}
-                icon={<HiUsers />}
+                title={'Payments'}
+                icon={<MdOutlinePayments />}
                 route={'/teams'}
+              />
+              <CustomRouteLink
+                title={'Message'}
+                icon={<BiMessageDots />}
+                route={'/message'}
+              />
+              <CustomRouteLink
+                title={'Settings'}
+                icon={<MdOutlineSettings />}
+                route={'/settings'}
               />
             </Flex>
           </Flex>
@@ -151,8 +168,8 @@ const CustomRouteLink = ({ route, title, icon }) => {
     <>
       <Link
         {...navContainerStyles}
-        background={isActive ? '#fff' : ''}
-        borderRight={isActive ? '5px solid #6d64fa' : '5px solid transparent'}
+        background={isActive ? '#FE4600' : ''}
+        borderRadius={isActive ? '8px' : 'none'}
         as={NavLink}
         exact
         to={`${route}`}
@@ -160,15 +177,17 @@ const CustomRouteLink = ({ route, title, icon }) => {
         onClick={() => drawer.setMenuStatus((_prev) => !_prev)}
       >
         <Flex
-          color={isActive ? 'primary.500' : '#676464'}
+          color={isActive ? '#fff' : '#5b5b5b'}
           gap={'5px'}
           align="center"
           cursor={'pointer'}
+          className='nunito'
+          fontWeight={400}
         >
           {React.cloneElement(icon, {
-            color: isActive ? 'primary.500' : '#676464',
+            color: isActive ? '#fff' : '#5b5b5b',
           })}
-          <Text fontSize={'14px'} fontWeight="600">
+          <Text fontSize={'16px'}>
             {title}
           </Text>
         </Flex>
