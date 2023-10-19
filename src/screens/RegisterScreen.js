@@ -185,6 +185,19 @@ const RegisterScreen = () => {
               Continue
             </Box>
           </Flex>
+          <Flex align={"center"} justify={"center"} gap='6px' mt='10px'>
+            <Text
+              className="nunito"
+              fontWeight={400}
+              fontSize={"14px"}
+              color={"#666666"}
+            >
+              Already have an account?
+            </Text>
+            <Text as="button" color={"#FE4600"}>
+              Sign In
+            </Text>
+          </Flex>
         </Box>
       </Flex>
     </>
