@@ -48,7 +48,7 @@ const App = () => {
                 _user="worker"
                 component={UserEditScreen}
               />
-              <PrivateRoute exact path="/" component={DashboardScreen} />
+              <Route exact path="/" component={DashboardScreen} />
               <PrivateRoute path="/profile" component={ProfileScreen} />
               <PrivateRoute
                 path="/edit-profile"

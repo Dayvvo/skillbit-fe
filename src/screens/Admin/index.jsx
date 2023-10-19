@@ -39,11 +39,11 @@ const AdminDashboard = () => {
 
   // const [logLimit, setLogLimit] = useState("today")
 
-  useFetchProfiles()
+  // useFetchProfiles()
 
   // useAppAudits({ limit: logLimit, type: "" })
 
-  if (loading) return <Spinner full />
+  // if (loading) return <Spinner full />
 
   const totalAccounts = profiles?.filter((profile) => !profile?.isSuspended)
 
@@ -55,7 +55,7 @@ const AdminDashboard = () => {
 
   // const userLogEntry = logs || [];
 
-  console.log('logs from admin index',logs)
+  // console.log('logs from admin index',logs)
 
   return (
     <AdminAsideBar>

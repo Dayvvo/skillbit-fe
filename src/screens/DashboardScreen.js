@@ -5,10 +5,10 @@ import { IoClose } from 'react-icons/io5';
 import { BiLogOut } from 'react-icons/bi';
 import { deviceDetect, isMobile } from 'react-device-detect';
 
-import Spinner from '../components/layouts/Spinner';
-import OnboardUser from '../components/form/Onboarding/UserForm';
-import UserWorkspace from '../components/workspace';
-import WorkerAsideBar from '../components/layouts/WorkerAsideBar';
+// import Spinner from '../components/layouts/Spinner';
+// import OnboardUser from '../components/form/Onboarding/UserForm';
+// import UserWorkspace from '../components/workspace';
+// import WorkerAsideBar from '../components/layouts/WorkerAsideBar';
 
 import useAuthActions from '../hooks/useAuth';
 
@@ -26,30 +26,30 @@ const DashboardScreen = () => {
   
 
 
-  if (loading || !profile)  {
-    return (
-      <Flex
-        position="fixed"
-        w="100vw"
-        h="100vh"
-        align="center"
-        justify="center"
-      >
-        <Spinner />
-      </Flex>
-    );
-  } 
-  else if (!profileSetup) return <OnboardUser profile={profile} />;
-  else if (auth?.token && auth?.role === 'Admin') {
+  // if (loading || !profile)  {
+  //   return (
+  //     <Flex
+  //       position="fixed"
+  //       w="100vw"
+  //       h="100vh"
+  //       align="center"
+  //       justify="center"
+  //     >
+  //       <Spinner />
+  //     </Flex>
+  //   );
+  // } 
+  // else if (!profileSetup) return <OnboardUser profile={profile} />;
+  // else if (auth?.token && auth?.role === 'Admin') {
     return <AdminDashboard />;
-  } 
-  else {
-    return (
-      <WorkerAsideBar>
-        <UserWorkspace />
-      </WorkerAsideBar>
-    );
-  }
+  // } 
+  // else {
+  //   return (
+  //     <WorkerAsideBar>
+  //       <UserWorkspace />
+  //     </WorkerAsideBar>
+  //   );
+  // }
 };
 
 const OnboardingModal = ({ profile, logout, proceed }) => {
