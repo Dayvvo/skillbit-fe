@@ -7,33 +7,22 @@ import { HiUsers } from "react-icons/hi";
 import {
   Flex,
   Box,
-  Grid,
   GridItem,
   Text,
   Img,
-  // Select,
   Circle,
   TableContainer,
   Table,
-  TableCaption,
   Thead,
   Tr,
   Th,
   Tbody,
   Td,
-  Tfoot,
-  Progress,
 } from "@chakra-ui/react";
 
-import useWidget from "../../hooks/useWidget";
-import useTeams from "../../hooks/useTeams";
 
 import AdminAsideBar from "../../components/layouts/AdminAsideBar";
-import Spinner from "../../components/layouts/Spinner";
 import { AiOutlineCaretDown, AiOutlineDown } from "react-icons/ai";
-import styled from "styled-components";
-// import ActivityLogs from "../../components/logs/ActivityLogs"
-// import { ActivityLogDetail, formatDateTimeString } from "./audit"
 
 const AdminDashboard = () => {
 

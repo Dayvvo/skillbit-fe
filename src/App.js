@@ -26,6 +26,7 @@ import useAppInsights from './hooks/useAppInsights';
 import { MenuProvider } from './hooks/MenuProvider';
 import { Helmet } from 'react-helmet';
 import UserOnboardingDetails from './screens/teams/onboarding/userDetails';
+import RegisterScreen from './screens/RegisterScreen';
 
 const App = () => {
   useAppInsights(true);
@@ -74,6 +75,7 @@ const App = () => {
               <AdminRoute path="/admin/logs" component={Audit} />
 
               <Route path="/login" component={LoginScreen} />
+              <Route path="/signup" component={RegisterScreen} />
               <Route component={NotFoundScreen} />
             </Switch>
           </Router>
