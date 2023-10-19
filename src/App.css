@@ -1,12 +1,13 @@
 @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800&display=swap');
 @import url('https://fonts.googleapis.com/css2?family=Archivo:wght@400;500;600;700&display=swap');
-@import url('https://fonts.googleapis.com/css2?family=Nunito:wght@400;700&family=Ubuntu:wght@700&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Nunito:wght@400;500;600;700&family=Ubuntu:wght@700&display=swap');
 
 /* Global Styles */
 :root {
   --primary-color: #5e55ef;
   --white-color: #fff;
   --dark-color: #000;
+  --pink: #FE4600;
   --hash:#827777;
   --fadebg:#FAFAFA;
   --borders:#9C9696;
@@ -42,7 +43,7 @@ body {
   font-family: 'Poppins', sans-serif !important;
   font-size: 1.6rem;
   line-height: 1.7;
-  background-color: var(--white-color);
+  background-color: #f1f1f1 !important;
   color: var(--dark-color);
   min-height: 100vh;
   overflow-x: hidden;

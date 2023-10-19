@@ -48,7 +48,7 @@ const AdminAsideBar = ({ children }) => {
       <Box
         w={{ base: 'full', lg: '0' }}
         h={{ base: 'full', lg: '0' }}
-        bg="black"
+        bg="#f1f1f1"
         p="0px"
         top="0px"
         left="0px"

@@ -19,7 +19,7 @@ const NavLayout = ({ children, displayAsidebar = true }) => {
     <>
       <Stack alignItems="center" justify="space-between" direction="row" py="6">
         <HStack gap="4">
-          <Box color="var(--primary-color)" fontSize={14}>
+          <Box color="#FE4600" fontSize={14}>
             <Link to="/">
               <Stack direction="row" alignItems="center">
                 <SiHomeadvisor />
