@@ -11,7 +11,6 @@ import {
 } from '@chakra-ui/react';
 import Btn from '../widgets/Button';
 import Input from '../widgets/Input';
-import useConnections from '../hooks/useConnections';
 import { NavLink } from 'react-router-dom/';
 
 // return GitHub URL Authentication link

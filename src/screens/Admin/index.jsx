@@ -8,7 +8,6 @@ import {
   GridItem,
   Text,
   Img,
-  Circle,
   TableContainer,
   Table,
   Thead,
