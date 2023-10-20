@@ -124,7 +124,7 @@ const RegisterScreen = () => {
                 <Input
                   type="text"
                   placeholder="Confirm Password"
-                  border={"1px solid #000"}
+                  border={"1px solid #FE4600"}
                   w={{ base: "full", lg: "500px" }}
                   color="#090909"
                   h="45px"
