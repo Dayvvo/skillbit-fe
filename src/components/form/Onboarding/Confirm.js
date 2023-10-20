@@ -13,7 +13,7 @@ import useGoBack from '../../../hooks/useGoBack';
 import { newTimezonesCity } from '../../../utils/timezone-list';
 
 const Confirm = ({ prevStep, formData, onChange, profile }) => {
-  const { updateUser, setProfile, setAuth, auth } = useAuthActions();
+  const { updateUser,  auth } = useAuthActions();
 
   const history = useHistory();
 

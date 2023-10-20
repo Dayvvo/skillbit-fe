@@ -13,7 +13,7 @@ import {
 import { FaUser } from "react-icons/fa"
 
 const UserDropdown = ({ user }) => {
-  const { alias, firstName: firstname, lastName: lastname, role } = user
+  const { alias, firstName: firstname, lastName: lastname, } = user
 
   const { logout, profile: auth } = useAuthActions()
 

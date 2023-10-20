@@ -1,9 +1,7 @@
-import { FaUserCheck, FaUserSlash } from "react-icons/fa";
 // import { AiFillFire } from "react-icons/ai"
 // import { BsClockHistory } from "react-icons/bs"
 // import { useState } from "react"
 // import { TbFlag3 } from "react-icons/tb"
-import { HiUsers } from "react-icons/hi";
 import {
   Flex,
   Box,
@@ -22,7 +20,7 @@ import {
 
 
 import AdminAsideBar from "../../components/layouts/AdminAsideBar";
-import { AiOutlineCaretDown, AiOutlineDown } from "react-icons/ai";
+import {  AiOutlineDown } from "react-icons/ai";
 
 const AdminDashboard = () => {
 
