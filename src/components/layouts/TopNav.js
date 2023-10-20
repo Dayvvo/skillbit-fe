@@ -1,7 +1,8 @@
 import React from "react";
-import { Box, Circle, Flex, HStack, Img, Input, Text } from "@chakra-ui/react";
+import { Box, Circle, Flex, HStack, Img, Input, Link, Text } from "@chakra-ui/react";
 import { BiSearch } from "react-icons/bi";
 import { BsBell } from "react-icons/bs";
+import { NavLink } from "react-router-dom/cjs/react-router-dom.min";
 
 const TopNav = () => {
   return (
@@ -30,30 +31,37 @@ const TopNav = () => {
               Skillbit
             </Text>
           </HStack>
-          <Text
-            className="nunito"
-            color={"var(--pink)"}
-            fontSize={"16px"}
-            fontWeight={500}
-          >
-            Find Work
-          </Text>
-          <Text
-            className="nunito"
-            color={"var(--dark-900)"}
-            fontSize={"16px"}
-            fontWeight={500}
-          >
-            Find Talent
-          </Text>
-          <Text
-            className="nunito"
-            color={"var(--dark-900)"}
-            fontSize={"16px"}
-            fontWeight={500}
-          >
-            Contact Us
-          </Text>
+          <NavLink to='/find-work'>
+            <Text
+              className="nunito"
+              color={"var(--pink)"}
+              fontSize={"16px"}
+              fontWeight={500}
+              textDecor={'none'}
+            >
+              Find Work
+            </Text>
+          </NavLink>
+          <NavLink to='#'>
+            <Text
+              className="nunito"
+              color={"var(--dark-900)"}
+              fontSize={"16px"}
+              fontWeight={500}
+            >
+              Find Talent
+            </Text>
+          </NavLink>
+          <NavLink to='#'>
+            <Text
+              className="nunito"
+              color={"var(--dark-900)"}
+              fontSize={"16px"}
+              fontWeight={500}
+            >
+              Contact Us
+            </Text>
+          </NavLink>
         </Flex>
         <Flex gap='30px' align={'center'}>
           <Box pos={"relative"}>
