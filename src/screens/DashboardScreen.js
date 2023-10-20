@@ -12,10 +12,6 @@ import AdminDashboard from './Admin';
 const DashboardScreen = () => {
   // Selectors
 
-  // send request to onboard user if user signed up with office account(SJULTRA)
-  
-  
-  //set profile to useRef to eliminate need for dependency array
   
 
 
