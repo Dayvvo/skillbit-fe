@@ -40,6 +40,7 @@ const useAuthActions = () => {
     [dispatch, set]
   );
 
+  const closeWelcome = useCallback(() => dispatch(close()), [dispatch, close]);
 
   const setProfile = useCallback(
     (payload) => {
@@ -82,8 +83,6 @@ const useAuthActions = () => {
           token,
           isAuthenticated: true,
         });
-        let tokenInStorage = localStorage.getItem('peepsdb-auth')
-
         !tokenInStorage && localStorage.setItem('peepsdb-auth', JSON.stringify({...data,token:data?.token}));
 
         fetchMyProfile(token);
@@ -92,6 +91,7 @@ const useAuthActions = () => {
 
         !firstLoginEntry && localStorage.setItem('firstLoginStamp', true);
 
+        let tokenInStorage = localStorage.getItem('peepsdb-auth')
 
       }
     } 
@@ -112,9 +112,9 @@ const useAuthActions = () => {
 
   const handleUserLogin = useCallback(({email,password})=>{
 
-      let user = setUsers.find(user=>user.email );
+      let user = setUsers.find(user=>user.email===email && user.password ===password);
 
-      console.log('email and pass',email,password,setUsers)
+      console.log('email and pass',email,password,user)
       if(user){
         setAuth({
           ...user,
@@ -156,6 +156,67 @@ const useAuthActions = () => {
     history.push('/');
   };
 
+  const updateUser = async (payload) => {
+    console.log('profile payload', payload);
+
+    let req = await Axios[profileSetup ? 'put' : 'post'](
+      `/profiles?logtype=${profileSetup ? 'onboard' : 'update'}`,
+      payload
+    );
+    let { data, status } = req;
+
+    let statusText = req.status === '201' ? 'created' : 'updated';
+
+    setProfile(req.data?._doc ? req.data?._doc : req.data);
+
+    statusText === 'created' && setAuth({ ...auth, profileSetup: true,onboarding:{
+      ...auth?.onboarding,
+      profileSetup:true,
+    } });
+
+    return {
+      data: data,
+      status,
+      statusText
+    };
+  };
+
+  const fetchMyProfile = async (token) => {
+
+    try {
+      setLoading(true);
+      let siginStamp = localStorage.getItem('first-login');
+
+      let profileUrl = `profiles/me${siginStamp ? '' : '?firstLogin=true'}`;
+
+      let req = await Axios.get(profileUrl, {
+        ...(token
+          ? {
+              headers: {
+                Authorization: token,
+              },
+            }
+          : {}),
+      });
+
+      !siginStamp && localStorage.setItem('first-login', true);
+
+      let { data } = req;
+
+      console.log('result from profile', req);
+
+      req.status === 201 &&
+        setProfile({
+          ...data,
+          firstName: capitalizeString(data?.firstName),
+          lastName: capitalizeString(data?.lastName),
+        });
+    } catch (err) {
+      console.error('err at fetching my profile', err);
+    } finally {
+      setLoading(false);
+    }
+  };
 
 
 
