@@ -4,7 +4,7 @@ import useAuthActions from './useAuth';
 
 const useLogin = () => {
 
-  const {  auth, loginUser,setAuth} = useAuthActions();
+  const {  auth, setAuth} = useAuthActions();
 
 
   // const windowQueries = window.location.search;

@@ -1,31 +1,17 @@
-import React, { useEffect, useState } from 'react';
+import React, {  useState } from 'react';
 import { Redirect } from 'react-router-dom';
-import Background from '../assets/images/login-background.png';
-import { FcGoogle } from 'react-icons/fc';
-import { BsGithub, BsLinkedin,  BsTwitter } from 'react-icons/bs';
-import Microsoft from '../assets/images/microsoft-icon.png';
 import { backendURL } from '../utils/setEnv';
 import useAuthActions from '../hooks/useAuth';
 import { renderJSX } from '../utils/helpers';
 import {
   Box,
-  F,
-  Center,
   Flex,
-  Grid,
-  GridItem,
-  Stack,
   Text,
-  useDisclosure,
-  Button,
   
 } from '@chakra-ui/react';
-import TextInput from '../widgets/Text';
 import Btn from '../widgets/Button';
 import Input from '../widgets/Input';
-import { IoIosCheckmarkCircle } from 'react-icons/io';
 import useConnections from '../hooks/useConnections';
-import useAppInsights from '../hooks/useAppInsights';
 import { NavLink } from 'react-router-dom/';
 
 // return GitHub URL Authentication link
@@ -60,8 +46,7 @@ const inputStyles =
 
 const LoginScreen = () => {
   // Selector
-  const { auth,loginUser ,handleUserLogin} = useAuthActions();
-  const { ConnectionsModal,connectionsRef:windowRef,sjultraConnect,googleConnect } = useConnections();  
+  const { auth,handleUserLogin} = useAuthActions();
 
  
 
