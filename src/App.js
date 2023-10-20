@@ -26,6 +26,7 @@ import useAppInsights from './hooks/useAppInsights';
 import { MenuProvider } from './hooks/MenuProvider';
 import { Helmet } from 'react-helmet';
 import UserOnboardingDetails from './screens/teams/onboarding/userDetails';
+import DashboardModal from './components/dashboard/DashboardModal';
 
 const App = () => {
   useAppInsights(true);
@@ -74,6 +75,8 @@ const App = () => {
               <AdminRoute path="/admin/logs" component={Audit} />
 
               <Route path="/login" component={LoginScreen} />
+              <Route path="/modal" component={DashboardModal} />
+
               <Route component={NotFoundScreen} />
             </Switch>
           </Router>
