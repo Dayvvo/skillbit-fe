@@ -17,11 +17,29 @@ import {
   Td,
 } from "@chakra-ui/react";
 
-
 import AdminAsideBar from "../../components/layouts/AdminAsideBar";
 import {  AiOutlineDown } from "react-icons/ai";
 
+import useWidget from "../../hooks/useWidget";
+
 const AdminDashboard = () => {
+
+
+  const {openModal,isOpen,closeModal:close} = useWidget()
+
+  const StartM = <></>
+
+  const viewOngoingProject = ()=>  
+    openModal({
+      children: StartM,
+      size: 'xl',
+      isOpen: true,
+      payload:{
+         close
+     
+      }
+    });
+
 
   return (
     <AdminAsideBar>
@@ -201,7 +219,6 @@ const AdminDashboard = () => {
                 <Td border={'none'}>1 Month</Td>
                 <Td border={'none'}>Pending</Td>
                 <Td border={'none'}>
-                  {/* <Progress colorScheme="pink" borderRadius={'10px'} value={100} w="80px" /> */}
                   <Text>100%</Text>
                 </Td>
               </Tr>

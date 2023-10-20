@@ -145,7 +145,7 @@ const useAuthActions = () => {
         })
       }
     
-  })
+  },[])
 
   const logout = () => {
     console.log('logging out',)

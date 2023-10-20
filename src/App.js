@@ -12,8 +12,11 @@ import DashboardScreen from './screens/DashboardScreen';
 import LoginScreen from './screens/LoginScreen';
 import ModalComponent from './components/layouts/Modal';
 import FindWork from './screens/FindJob/find-work';
-
+import PrivateRoute from './components/routing/PrivateRoute';
+import useLogin from './hooks/useLogin'
 const App = () => {
+  
+  useLogin()
   return (
     <>
       <Helmet>
@@ -28,7 +31,7 @@ const App = () => {
           <Router>
             <ModalComponent />
             <Switch>
-              <Route exact path="/" component={DashboardScreen} />
+              <PrivateRoute exact path="/" component={DashboardScreen} />
               <Route path="/find-work" component={FindWork} />
               <Route path="/login" component={LoginScreen} />
               <Route path="/signup" component={RegisterScreen} />
