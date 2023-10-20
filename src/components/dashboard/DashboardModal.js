@@ -1,7 +1,7 @@
 
 import { Modal, ModalContent, ModalOverlay, useDisclosure, ModalHeader, Text, CloseButton, Box, ModalBody, Heading} from '@chakra-ui/react'
 import React, { useEffect } from 'react'
-import {BiCopy, BiPhone, BiWallet } from 'react-icons/bi'
+import {BiCheck, BiCopy, BiPhone, BiWallet } from 'react-icons/bi'
 import { BsArrowRight } from 'react-icons/bs'
 import { MdEmail } from 'react-icons/md'
 
@@ -112,20 +112,38 @@ const DashboardModal = () => {
             <Box bg="#FFF8F5" p="2rem" mt="2rem">
                 <Heading fontWeight="700" fontSize="20px" lineHeight="20px" color="#090909">Project information</Heading>
 
+                <Box display="flex" pt="2.5rem" pl="2rem" pr="2.5rem">
+                    <Box bgColor="#00D26C" h="40px" w="40px" borderRadius="50%" display="flex" alignItems="center" justifyContent="center">
+                        <BiCheck color='#FFFFFF' size="20px"  />
+                    </Box>
+                    <Box width="160px" alignSelf="center" border="dashed 1px #666666"></Box>
+                    <Box bgColor="#00D26C" h="40px" w="40px" borderRadius="50%" display="flex" alignItems="center" justifyContent="center">
+                        <BiCheck color='#FFFFFF' size="20px"  />
+                    </Box>
+                    <Box width="135px" alignSelf="center" border="dashed 1px #666666"></Box>
+                    <Box bgColor="#00D26C" h="40px" w="40px" borderRadius="50%" display="flex" alignItems="center" justifyContent="center">
+                        <BiCheck color='#FFFFFF' size="20px"  />
+                    </Box>
+                    <Box width="135px" alignSelf="center" border="dashed 1px #666666"></Box>
+                    <Box bgColor="#00D26C" h="40px" w="40px" borderRadius="50%" display="flex" alignItems="center" justifyContent="center">
+                        <BiCheck color='#FFFFFF' size="20px"  />
+                    </Box>
+                </Box>
+
                 <Box display="flex" justifyContent="space-between" pt="2rem">
-                    <Box>
+                    <Box display="flex" justifyContent="center" flexDir="column" alignItems="center">
                         <Text fontWeight="700" lineHeight="21px" fontSize="16px">Screening</Text>
                         <Text fontWeight="500" lineHeight="13.97px" fontSize="12px" fontStyle="italic" pt="0.6rem">March 20, 2023</Text>
                     </Box>
-                    <Box>
+                    <Box display="flex" justifyContent="center" flexDir="column" alignItems="center">
                         <Text fontWeight="700" lineHeight="21px" fontSize="16px">Project</Text>
                         <Text fontWeight="500" lineHeight="13.97px" fontSize="12px" fontStyle="italic" pt="0.6rem">March 20, 2023</Text>
                     </Box>
-                    <Box>
+                    <Box display="flex" justifyContent="center" flexDir="column" alignItems="center">
                         <Text fontWeight="700" lineHeight="21px" fontSize="16px">Review</Text>
                         <Text fontWeight="500" lineHeight="13.97px" fontSize="12px" fontStyle="italic" pt="0.6rem">April 10, 2023</Text>
                     </Box>
-                    <Box>
+                    <Box display="flex" justifyContent="center" flexDir="column" alignItems="center">
                         <Text fontWeight="700" lineHeight="21px" fontSize="16px">Payment</Text>
                         <Text fontWeight="500" lineHeight="13.97px" fontSize="12px" fontStyle="italic" pt="0.6rem">April 22, 2023</Text>
                     </Box>
