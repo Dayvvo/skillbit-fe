@@ -11,6 +11,7 @@ import RegisterScreen from './screens/RegisterScreen';
 import DashboardScreen from './screens/DashboardScreen';
 import LoginScreen from './screens/LoginScreen';
 import ModalComponent from './components/layouts/Modal';
+import FindWork from './screens/FindJob/find-work';
 
 const App = () => {
   return (
@@ -28,6 +29,7 @@ const App = () => {
             <ModalComponent />
             <Switch>
               <Route exact path="/" component={DashboardScreen} />
+              <Route path="/find-work" component={FindWork} />
               <Route path="/login" component={LoginScreen} />
               <Route path="/signup" component={RegisterScreen} />
               <Route component={NotFoundScreen} />

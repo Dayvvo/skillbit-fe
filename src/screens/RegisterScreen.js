@@ -1,10 +1,31 @@
-import { Box,  Flex, Input, Text } from "@chakra-ui/react";
-import React from "react";
+import { Box,  Flex, Input, Text, } from "@chakra-ui/react";
+import React, { useState } from "react";
+import { NavLink } from "react-router-dom";
 import { AiOutlineEye } from "react-icons/ai";
+import TopNav from "../components/layouts/TopNav";
 
 const RegisterScreen = () => {
+  const [submitting,setSubmitting] = useState(false)
+
+  const submit = ()=> {
+    try{
+      setSubmitting(true)
+      console.log('signup state')
+      // handleUserLogin(signUpState)
+    }
+    catch(err){
+      console.log('err occured',err)
+    }
+    finally{
+      setTimeout(() => {
+        setSubmitting(false)        
+      }, 1500);
+    }
+  }
+  
   return (
     <>
+      <TopNav />
       <Flex
         w={{ base: "full", lg: "1110px" }}
         m={{ base: "20px 0", lg: "30px auto" }}
@@ -124,7 +145,7 @@ const RegisterScreen = () => {
                 <Input
                   type="text"
                   placeholder="Confirm Password"
-                  border={"1px solid #000"}
+                  border={"1px solid #FE4600"}
                   w={{ base: "full", lg: "500px" }}
                   color="#090909"
                   h="45px"
@@ -169,6 +190,7 @@ const RegisterScreen = () => {
               p="10px 50px"
               border={"1px solid #FE4600"}
               borderRadius={"4px"}
+              bgColor={'#fff'}
               color="#FE4600"
               fontSize={"16px"}
             >
@@ -181,6 +203,8 @@ const RegisterScreen = () => {
               bgColor={"#FE4600"}
               color="#fff"
               fontSize={"16px"}
+              loading={submitting}
+              onClick={submit}
             >
               Continue
             </Box>
@@ -194,9 +218,11 @@ const RegisterScreen = () => {
             >
               Already have an account?
             </Text>
-            <Text as="button" color={"#FE4600"}>
-              Sign In
-            </Text>
+            <NavLink to='/login'>
+              <Text as="button" color={"#FE4600"}>
+                Sign In
+              </Text>
+            </NavLink>
           </Flex>
         </Box>
       </Flex>
