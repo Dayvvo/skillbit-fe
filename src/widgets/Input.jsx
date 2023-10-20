@@ -114,9 +114,9 @@ const InputElement = ({
         selectChild,
         <InputGroup>
           <Input
-            bg={`rgba(4, 9, 33, 0.04)`}
-            border={`1.36937px solid rgba(4, 9, 33, 0.04)`}
+            border = '1px solid #D0D5DD'
             h="50px"
+            bg='white'
             p="0 2rem"
             {...inputStyles}
             type={
@@ -148,6 +148,7 @@ const InputElement = ({
               display="flex"
               align="center"
               h="100%"
+              px='0.5em'
             >
               {preview ? (
                 <MdOutlineEdit

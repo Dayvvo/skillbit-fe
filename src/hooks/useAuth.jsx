@@ -5,6 +5,8 @@ import { capitalizeString } from '../utils/helpers';
 import useAxios from './useAxios';
 import { useHistory } from 'react-router-dom';
 import useAppInsights from './useAppInsights';
+import { setUsers } from '../utils/setUser';
+import { useToast } from '@chakra-ui/toast';
 
 const useAuthActions = () => {
   const { setAuth: set, setProfile: setP, closeWelcome: close } = authActions;
@@ -16,6 +18,8 @@ const useAuthActions = () => {
   const { auth, profile: userProfile, welcome } = useSelector(selectAuth);
 
   const Axios = useAxios();
+
+  const toast = useToast()
 
   const {  userTimezone,device,getGeolocation } = useAppInsights();
   
@@ -79,6 +83,7 @@ const useAuthActions = () => {
           token,
           isAuthenticated: true,
         });
+        !tokenInStorage && localStorage.setItem('peepsdb-auth', JSON.stringify({...data,token:data?.token}));
 
         fetchMyProfile(token);
 
@@ -88,7 +93,6 @@ const useAuthActions = () => {
 
         let tokenInStorage = localStorage.getItem('peepsdb-auth')
 
-        !tokenInStorage && localStorage.setItem('peepsdb-auth', JSON.stringify({...data,token:data?.token}));
       }
     } 
     catch (err) {
@@ -104,6 +108,44 @@ const useAuthActions = () => {
     }
 
   },[setAuth])
+
+
+  const handleUserLogin = useCallback(({email,password})=>{
+
+      let user = setUsers.find(user=>user.email===email && user.password ===password);
+
+      console.log('email and pass',email,password,user)
+      if(user){
+        setAuth({
+          ...user,
+          isAuthenticated: true,
+        });
+        let tokenInStorage= localStorage.getItem('skillbit-auth')
+        !tokenInStorage && localStorage.setItem('skillbit-auth', JSON.stringify({...user}));
+
+        toast({
+          status:'success',
+          title:'Login successful',
+          description:`Welcome ${user?.email}`,
+          position:'top',
+          isClosable:true
+        })
+  
+  
+        return user;
+
+      }
+      else{
+        toast({
+          status:'error',
+          title:'Login failed',
+          description:'Please enter correct login credentials',
+          position:'top',
+          isClosable:true
+        })
+      }
+    
+  })
 
   const logout = () => {
     console.log('logging out',)
@@ -191,7 +233,8 @@ const useAuthActions = () => {
     auth,
     profile,
     welcome,
-    profileSetup
+    profileSetup,
+    handleUserLogin
   };
 };
 
