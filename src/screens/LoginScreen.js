@@ -9,29 +9,24 @@ import useAuthActions from '../hooks/useAuth';
 import { renderJSX } from '../utils/helpers';
 import {
   Box,
-  Button,
+  F,
   Center,
   Flex,
   Grid,
   GridItem,
   Stack,
   Text,
-  Image,
   useDisclosure,
-  Modal,
-  ModalOverlay,
-  ModalContent,
-  ModalBody,
-  Hide,
-  ModalCloseButton,
+  Button,
+  
 } from '@chakra-ui/react';
 import TextInput from '../widgets/Text';
 import Btn from '../widgets/Button';
 import Input from '../widgets/Input';
 import { IoIosCheckmarkCircle } from 'react-icons/io';
 import useConnections from '../hooks/useConnections';
-import { AiOutlineRight } from 'react-icons/ai';
 import useAppInsights from '../hooks/useAppInsights';
+import { NavLink } from 'react-router-dom/';
 
 // return GitHub URL Authentication link
 export const githubAuthCall = (inapp) =>
@@ -62,137 +57,47 @@ export const twitterAuthUrl = (userid) =>
 const inputStyles =
   'background:whiteborder:1px solid var(--borders)border-radius:0.4emmargin-top:0.4emheight:40pxfont-size:13px';
 
-const NewConnection = ({ handleClose }) => {
-  const [loading, setLoading] = useState(false);
-
-  const [step, setStep] = useState(0);
-
-  const handleSubmit = async () => {
-    try {
-      setLoading(true);
-      setTimeout(() => {
-        setStep(1);
-        setLoading(false);
-      }, 2000);
-    } catch (err) {
-    } finally {
-    }
-  };
-
-  if (!step) {
-    return (
-      <>
-        <Box p="2em">
-          <Flex justify={'center'}>
-            <TextInput variant={'s2'}>Request Connect</TextInput>
-          </Flex>
-
-          <Center mt="0.6em" fontSize={'13px'} color={'var(--hash)'}>
-            Enter connection information
-          </Center>
-
-          <Input
-            mt="1em"
-            inputStyles={inputStyles}
-            labelStyles="fontSize:13pxmargin:0"
-            label="Name"
-            placeholder="Enter your full name"
-          />
-
-          <Input
-            mt="1em"
-            inputStyles={inputStyles}
-            labelStyles="fontSize:13pxmargin:0"
-            label="Email address"
-            placeholder="Enter your email address"
-          />
-
-          <Input
-            mt="1em"
-            inputStyles={inputStyles}
-            labelStyles="fontSize:13pxmargin:0"
-            label="Website name"
-            placeholder="PeespDB"
-          />
-
-          <Input
-            mt="1em"
-            inputStyles={inputStyles}
-            labelStyles="fontSize:13pxmargin:0"
-            label="Connection URL"
-            placeholder="www.peepsDB.com"
-          />
-
-          <Btn loading={loading} mt="2em" onClick={handleSubmit} full>
-            Submit
-          </Btn>
-        </Box>
-      </>
-    );
-  }
-  return (
-    <Box p={'1.5em'}>
-      <Center mt="1.5em">
-        <IoIosCheckmarkCircle fontSize={'55px'} color="var(--primary-color)" />
-      </Center>
-      <Center color="var(--primary-color)" mt="0.5em" fontSize={'18px'}>
-        Thank You!{' '}
-      </Center>
-
-      <Center mt={'0.5em'} color="#333333" fontSize={'13px'}>
-        You request has been successfully recorded. We're working on it!
-      </Center>
-
-      <Btn onClick={handleClose} mt="1.2em" full>
-        Close
-      </Btn>
-    </Box>
-  );
-};
 
 const LoginScreen = () => {
   // Selector
-  const { auth,loginUser } = useAuthActions();
+  const { auth,loginUser ,handleUserLogin} = useAuthActions();
   const { ConnectionsModal,connectionsRef:windowRef,sjultraConnect,googleConnect } = useConnections();  
-  const { sanitizePostEventMessages } = useAppInsights();
 
-  // states
-  const [modalScreen, setModalScreen] = useState();
-  const { isOpen, onOpen, onClose } = useDisclosure();
  
 
-  // open modal
-  const handleOpen = (type) => {
-    setModalScreen(type);
-    onOpen();
-  };
+  const [loginState,setLoginState] = useState({
+    email:'',
+    password:''
+  })
+
+  const handleChange = e=>setLoginState(prev=>({
+    ...prev,
+    [e?.target?.name]:e?.target?.value
+  }))
+
+
 
   // close modal
-  const handleClose = () => {
-    setModalScreen();
-    onClose();
-  };
 
-  useEffect(() => {
-    window.addEventListener('message', async(e) => {
-      let sanitiziedEvent =sanitizePostEventMessages(e) ;
-      if (windowRef?.current?.close && sanitiziedEvent ) {
+  const [submitting,setSubmitting] = useState(false)
 
-          const initPayload = JSON.parse(sanitiziedEvent);
+  const submit = ()=>{
+     try{
+      setSubmitting(true)
+      console.log('login state',loginState)
+      handleUserLogin(loginState)
+     }
+     catch(err){
+      console.log('err occured',err)
+     }
+     finally{
+      setTimeout(() => {
+        setSubmitting(false)        
+      }, 1500);
+     }
+  }
 
-          const {token} = initPayload;
-          
-          localStorage.setItem('peepsdb-auth',JSON.stringify({token}))
-          await loginUser(token,true)
-
-          windowRef.current?.close && windowRef.current.close();
-
-        }
-    });
-    return window.removeEventListener('message', window);
-  }, [loginUser]);
-
- 
+  console.log('auth val',auth)
   // check if authenticated
   if (auth?.token) {
     return <Redirect to="/" />;
@@ -201,172 +106,134 @@ const LoginScreen = () => {
 
 
   return (
-    <>
-      {/** request connection modal */}
-      <Modal size="2xl" isOpen={isOpen} onClose={handleClose}>
-        <ModalOverlay />
-        <ModalContent mx="6">
-          <ModalCloseButton />
-          <ModalBody mt="1em">
-            {modalScreen === 'new-connection' ? (
-              <NewConnection handleClose={handleClose} />
-            ) : modalScreen === 'more-connections' ? (
-              <>
-                <ConnectionsModal view={'login'} />
-              </>
-            ) : (
-              <></>
-            )}
-          </ModalBody>
-        </ModalContent>
-      </Modal>
-      {/** first content showing up */}
-      <Stack
-        direction={'row'}
-        justify="center"
-        alignItems="center"
-        gap="16"
-        overflow="auto"
-        minH="100vh"
+    <Flex
+    w={{ base: "full", lg: "1110px" }}
+    m={{ base: "20px 0", lg: "30px auto" }}
+  >
+    <Box
+      bgColor={"#d9d9d9"}
+      w="500px"
+      display={{ base: "none", lg: "block" }}
+    ></Box>
+    <Box p={{ base: "20px", lg: "40px" }}>
+      <Text
+        className="nunito"
+        color={"#090909"}
+        fontWeight={700}
+        fontSize={"24px"}
       >
-        {/** login block */}
-        <Stack direction={'column'} alignItems="center" gap="8">
-          <Box align="center">
-            <Text fontSize="2.5rem" fontWeight="semibold">
-              Sign in to PeepsDB
-            </Text>
-            <Text fontSize="2xl" pt="2" color="var(--hash)">
-              Sign in with a single click
-            </Text>
-          </Box>
-
-          <Box>
-            <Grid
-              align="center"
-              gap={{
-                base: '1rem',
-                md: '1rem',
-                lg: '2rem',
-              }}
-              templateColumns={{
-                base: 'repeat(3,1fr)',
-                md: 'repeat(3,1fr)',
-              }}
-            >
-              <CustomSocialLink onClick={googleConnect}>
-                <FcGoogle />
-              </CustomSocialLink>
-
-              <CustomSocialLink socialAuthLink={githubAuthCall}>
-                <BsGithub />
-              </CustomSocialLink>
-
-              <CustomSocialLink socialAuthLink={microsoftAuthUrl}>
-                <Image src={Microsoft} alt="" boxSize="3rem" />
-              </CustomSocialLink>
-
-              <CustomSocialLink onClick={sjultraConnect}>
-                <Image src={'/logo.png'} alt='sjultra-login' boxSize={'3rem'} />
-              </CustomSocialLink>
-
-              <CustomSocialLink socialAuthLink={twitterAuthUrl}>
-                <BsTwitter color="#25ABED" />
-              </CustomSocialLink>
-
-              <CustomSocialLink socialAuthLink={linkedinAuthUrl}>
-                <BsLinkedin color="#1a75bb" />
-              </CustomSocialLink>
-            </Grid>
-
-            {2 + 2 === 5 && (
-              <Button
-                onClick={() => handleOpen('more-connections')}
-                mt="2.5em"
-                bg="white"
-                h={'3.5em'}
-                border="1px solid var(--primary-color)"
-                w="full"
-                borderRadius="5px"
-              >
-                <Text
-                  mr={'0.3em'}
-                  fontSize={'15px'}
-                  color="var(--primary-color)"
-                >
-                  More connections
-                </Text>
-                <AiOutlineRight
-                  fontSize={'14px'}
-                  color="var(--primary-color)"
-                />
-              </Button>
-            )}
-
-            <Flex align="center" my="1.5em">
-              <Box h="1px" borderTop="1px solid #EEEEEE" flex={0.49}></Box>
-              <Text mx="0.4em" fontSize="1.3rem">
-                OR
-              </Text>
-              <Box h="1px" borderTop="1px solid #EEEEEE" flex={0.49}></Box>
-            </Flex>
-
-            <Flex gap="1">
-              <Text fontSize={'xl'}>Couldn't find connection? </Text>
-              <Text
-                onClick={() => handleOpen('new-connection')}
-                cursor={'pointer'}
-                fontSize={'xl'}
-                color="var(--primary-color)"
-                _hover={{
-                  textDecoration: 'underline',
-                }}
-              >
-                Request Connect
-              </Text>
-            </Flex>
-          </Box>
-        </Stack>
-        {/** Right illustration image -> Only visible when breakpoint:lg and more */}
-        <Hide below="lg">
-          <Stack borderLeft="1px solid #EEEEEE" justify="center">
-            <Image
-              boxSize="490px"
-              objectFit="cover"
-              p="16"
-              src={Background}
-              alt="login right image"
-            />
-          </Stack>
-        </Hide>
-      </Stack>
-    </>
-  );
+        Welcome back
+      </Text>
+      <Text
+        className="nunito"
+        color={"#666666"}
+        fontWeight={400}
+        fontSize={{ base: "14px", lg: "16px" }}
+        maxW={{ base: "full", lg: "500px" }}
+      >
+        Sign in to Access your account
+      </Text>
+      <Box mt="30px">
+        <Box>
+          <Input
+            label={'Email'}
+            type="text"
+            placeholder="Email"
+            w={{ base: "full", lg: "500px" }}
+            color="#090909"
+            h="45px"
+            name='email'
+            onChange={handleChange}
+            mt="10px"
+            fontSize={"14px"}
+            p="10px"
+            borderRadius={"6px"}
+            _placeholder={{ color: "#D0D5DD", fontSize: "12px" }}
+          />
+        </Box>
+        <Box mt="20px">
+          <Input
+            label={'Password'}
+            type="password"
+            placeholder="******"
+            w={{ base: "full", lg: "500px" }}
+            color="#090909"
+            name='password'
+            h="45px"
+            mt="10px"
+            onChange={handleChange}
+            fontSize={"14px"}
+            p="10px"
+            borderRadius={"6px"}
+            _placeholder={{ color: "#D0D5DD", fontSize: "12px" }}
+          />
+        </Box>
+        <Text
+          className="nunito"
+          color={"#666666"}
+          fontWeight={400}
+          fontSize={"14px"}
+          mt="10px"
+        >
+          By clicking on Continue, you accept our{" "}
+          <Text as={"span"} color={"#FE4600"}>
+            Terms of Service
+          </Text>{" "}
+          and{" "}
+          <Text as="span" color={"#FE4600"}>
+            Privacy Policy
+          </Text>
+        </Text>
+      </Box>
+      <Flex
+        align={"center"}
+        flexDir={{ base: "column", lg: "row" }}
+        justify={"center"}
+        gap={{ base: "10px", lg: "20px" }}
+        mt={{ base: "40px", lg: "80px" }}
+      >
+        <Btn
+          as="button"
+          p="10px 50px"
+          border={"1px solid #FE4600"}
+          borderRadius={"4px"}
+          color="#FE4600"
+          bg='white'
+          fontSize={"16px"}
+        >
+          Go back
+        </Btn>
+        <Btn
+          p="10px 50px"
+          borderRadius={"4px"}
+          bgColor={"#FE4600"}
+          color="#fff"
+          fontSize={"16px"}
+          loading={submitting}   
+          onClick={submit}         
+        >
+          Continue
+        </Btn>
+      </Flex>
+      <Flex align={"center"} justify={"center"} gap='6px' mt='10px'>
+        <Text
+          className="nunito"
+          fontWeight={400}
+          fontSize={"14px"}
+          color={"#666666"}
+        > 
+          Don't have an account?
+        </Text>
+        <NavLink to='/signup' >
+          <Text as="button" color={"#FE4600"}>
+            Sign Up
+          </Text>
+        </NavLink>
+      </Flex>
+    </Box>
+  </Flex>
+);
 };
 
-// Customs social(s) link(s) for Auth -> Facebook | Google | GitHub | Twitter | ...
-const CustomSocialLink = ({ children, socialAuthLink,onClick }) => {
-  return (
-    <GridItem>
-      <Stack
-        as="a"
-        h="80px"
-        w="80px"
-        p="4"
-        border="1px"
-        borderColor="gray.200"
-        alignItems="center"
-        justify="center"
-        borderRadius="8px"
-        fontSize="3rem"
-        _hover={{
-          background: '#f9f9f9',
-        }}
-        {...socialAuthLink?{href:socialAuthLink()}:{onClick}}
-      >
-        {children}
-      </Stack>
-    </GridItem>
-  );
-};
 
 export default LoginScreen;

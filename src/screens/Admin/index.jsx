@@ -28,7 +28,7 @@ const AdminDashboard = () => {
 
   return (
     <AdminAsideBar>
-      <Flex
+      {/* <Flex
         align="center"
         px="30px"
         h="80px"
@@ -68,7 +68,7 @@ const AdminDashboard = () => {
           </Flex>
           <AiOutlineCaretDown color={"#090909"} fontSize={"20px"} />
         </Flex>
-      </Flex>
+      </Flex> */}
 
       {/* <Text fontSize={"16"} color="gray.500">
         You can now see all onboarding information of your organization.

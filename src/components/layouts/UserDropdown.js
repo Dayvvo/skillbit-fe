@@ -51,7 +51,7 @@ const UserDropdown = ({ user }) => {
           <MenuItem py="2" px="3" borderRadius="5px" _hover={{bg:"#fcfcfc"}}>
             <Link style={{ display: "flex", width: "100%" }} to="/profile">
               {displayName}
-              <Text>({role})</Text>
+              {/* <Text>({role})</Text> */}
             </Link>
           </MenuItem>
           {auth?.profileSetup ? (

@@ -29,7 +29,6 @@ import UserOnboardingDetails from './screens/teams/onboarding/userDetails';
 import RegisterScreen from './screens/RegisterScreen';
 
 const App = () => {
-  useAppInsights(true);
   return (
     <>
       <Helmet>
@@ -49,7 +48,7 @@ const App = () => {
                 _user="worker"
                 component={UserEditScreen}
               />
-              <Route exact path="/" component={DashboardScreen} />
+              <PrivateRoute exact path="/" component={DashboardScreen} />
               <PrivateRoute path="/profile" component={ProfileScreen} />
               <PrivateRoute
                 path="/edit-profile"

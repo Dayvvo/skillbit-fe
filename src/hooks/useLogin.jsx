@@ -4,7 +4,7 @@ import useAuthActions from './useAuth';
 
 const useLogin = () => {
 
-  const {  auth, loginUser } = useAuthActions();
+  const {  auth, loginUser,setAuth} = useAuthActions();
 
 
   // const windowQueries = window.location.search;
@@ -27,8 +27,12 @@ const useLogin = () => {
 
   useEffect(() => {
     (() => {
-      loginUser(token,false,true)
-      
+      let token  = localStorage.get('skillbit-auth');
+      console.log('parsed',JSON.parse(token))
+      token && setAuth({
+        ...JSON.parse(token),
+        isAuthenticated:true    
+      })
     })();
   }, [sign,token]);
 

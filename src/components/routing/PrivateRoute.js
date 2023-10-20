@@ -4,13 +4,11 @@ import { Route, Redirect } from 'react-router-dom';
 import { Box } from '@chakra-ui/react';
 
 import useAuthActions from '../../hooks/useAuth';
-import useLogin from '../../hooks/useLogin';
 
 const PrivateRoute = ({ component: Component, ...rest }) => {
   // Selectors
   const { auth } = useAuthActions();
 
-  useLogin()
 
   const isAuthenticated = auth?.isAuthenticated ? true : false;
 
