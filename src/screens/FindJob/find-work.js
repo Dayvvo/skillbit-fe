@@ -17,7 +17,7 @@ import { MdVerified } from "react-icons/md";
 import { BsStarFill } from "react-icons/bs";
 import { TiLocation } from "react-icons/ti";
 
-const skillTag = () => {
+export const skillTag = () => {
   return (
     <HStack align={"start"} gap={"15px"}>
       <Text
@@ -46,7 +46,7 @@ const skillTag = () => {
   );
 };
 
-const WorKCard = ({
+export const WorKCard = ({
   title,
   priceType,
   level,
