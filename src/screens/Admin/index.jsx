@@ -18,12 +18,10 @@ import {
   Td,
 } from "@chakra-ui/react";
 
-
 import AdminAsideBar from "../../components/layouts/AdminAsideBar";
-import {  AiOutlineDown } from "react-icons/ai";
+import { AiOutlineDown } from "react-icons/ai";
 
 const AdminDashboard = () => {
-
   return (
     <AdminAsideBar>
       {/* <Flex
@@ -35,7 +33,7 @@ const AdminDashboard = () => {
         borderBottom={"1px solid #dbe1e7"}
       >
         <Text
-          className="nunito"
+          className="poppins"
           color={"#090909"}
           fontSize={"20px"}
           fontWeight="700"
@@ -49,7 +47,7 @@ const AdminDashboard = () => {
               <Text
                 color={"#090909"}
                 fontSize={"14px"}
-                className="nunito"
+                className="poppins"
                 fontWeight={500}
               >
                 Emmanuel Ike
@@ -57,7 +55,7 @@ const AdminDashboard = () => {
               <Text
                 color={"#848484"}
                 fontSize={"10px"}
-                className="nunito"
+                className="poppins"
                 fontWeight={400}
               >
                 @theemmanuel
@@ -113,10 +111,10 @@ const AdminDashboard = () => {
         </CustomStatisticCard>
       </Flex>
 
-      <Box mb='30px'>
+      <Box mb="30px">
         <Flex justify={"space-between"} align="center" my="25px">
           <Text
-            className="nunito"
+            className="poppins"
             color="#000000"
             fontSize={"22px"}
             fontWeight={600}
@@ -126,7 +124,7 @@ const AdminDashboard = () => {
           <Flex gap="20px">
             <Flex
               bgColor={"#f9fbff"}
-              className="nunito"
+              className="poppins"
               gap="10px"
               align="center"
               p="8px"
@@ -147,7 +145,7 @@ const AdminDashboard = () => {
             </Flex>
             <Text
               bgColor={"#f9fbff"}
-              className="nunito"
+              className="poppins"
               p="8px"
               borderRadius={"4px"}
               color={"#FD4600"}
@@ -161,33 +159,33 @@ const AdminDashboard = () => {
         <TableContainer bg="#fff">
           <Table variant="simple">
             <Thead>
-              <Tr h='50px'>
-                <Th border={'none'}>
+              <Tr h="50px">
+                <Th border={"none"}>
                   <Text fontWeight={400} color={"#030229"} fontSize={"14px"}>
                     Project Id
                   </Text>
                 </Th>
-                <Th border={'none'}>
+                <Th border={"none"}>
                   <Text fontWeight={400} color={"#030229"} fontSize={"14px"}>
                     Professional Name
                   </Text>
                 </Th>
-                <Th border={'none'}>
+                <Th border={"none"}>
                   <Text fontWeight={400} color={"#030229"} fontSize={"14px"}>
                     Role
                   </Text>
                 </Th>
-                <Th border={'none'}>
+                <Th border={"none"}>
                   <Text fontWeight={400} color={"#030229"} fontSize={"14px"}>
                     Duration
                   </Text>
                 </Th>
-                <Th border={'none'}>
+                <Th border={"none"}>
                   <Text fontWeight={400} color={"#030229"} fontSize={"14px"}>
                     Payment Status
                   </Text>
                 </Th>
-                <Th border={'none'}>
+                <Th border={"none"}>
                   <Text fontWeight={400} color={"#030229"} fontSize={"14px"}>
                     Project Status
                   </Text>
@@ -195,73 +193,74 @@ const AdminDashboard = () => {
               </Tr>
             </Thead>
             <Tbody>
-              <Tr color={"#000000"} fontSize={'13px'} bgColor={'#fff'} h='50px'>
-                <Td border={'none'} mt='10px'>#876364</Td>
-                <Td border={'none'}>Stephen Nico</Td>
-                <Td border={'none'}>Bitcoin Developer</Td>
-                <Td border={'none'}>1 Month</Td>
-                <Td border={'none'}>Pending</Td>
-                <Td border={'none'}>
+              <Tr color={"#000000"} fontSize={"13px"} bgColor={"#fff"} h="50px">
+                <Td border={"none"} mt="10px">
+                  #876364
+                </Td>
+                <Td border={"none"}>Stephen Nico</Td>
+                <Td border={"none"}>Bitcoin Developer</Td>
+                <Td border={"none"}>1 Month</Td>
+                <Td border={"none"}>Pending</Td>
+                <Td border={"none"}>
                   {/* <Progress colorScheme="pink" borderRadius={'10px'} value={100} w="80px" /> */}
                   <Text>100%</Text>
                 </Td>
               </Tr>
-              <Tr color={"#000000"} fontSize={'13px'} h='50px'>
-                <Td border={'none'}>#876364</Td>
-                <Td border={'none'}>Stephen Nico</Td>
-                <Td border={'none'}>Bitcoin Developer</Td>
-                <Td border={'none'}>1 Month</Td>
-                <Td border={'none'}>Pending</Td>
-                <Td border={'none'}>
+              <Tr color={"#000000"} fontSize={"13px"} h="50px">
+                <Td border={"none"}>#876364</Td>
+                <Td border={"none"}>Stephen Nico</Td>
+                <Td border={"none"}>Bitcoin Developer</Td>
+                <Td border={"none"}>1 Month</Td>
+                <Td border={"none"}>Pending</Td>
+                <Td border={"none"}>
                   {/* <Progress colorScheme="pink" borderRadius={'10px'} value={50} w="80px" /> */}
                   <Text>50%</Text>
                 </Td>
               </Tr>
-              <Tr color={"#000000"} fontSize={'13px'} h='50px'>
-                <Td border={'none'}>#876364</Td>
-                <Td border={'none'}>Stephen Nico</Td>
-                <Td border={'none'}>Bitcoin Developer</Td>
-                <Td border={'none'}>1 Month</Td>
-                <Td border={'none'}>Pending</Td>
-                <Td border={'none'}>
+              <Tr color={"#000000"} fontSize={"13px"} h="50px">
+                <Td border={"none"}>#876364</Td>
+                <Td border={"none"}>Stephen Nico</Td>
+                <Td border={"none"}>Bitcoin Developer</Td>
+                <Td border={"none"}>1 Month</Td>
+                <Td border={"none"}>Pending</Td>
+                <Td border={"none"}>
                   {/* <Progress colorScheme="pink" borderRadius={'10px'} value={100} w="80px" /> */}
                   <Text>100%</Text>
                 </Td>
               </Tr>
-              <Tr color={"#000000"} fontSize={'13px'} h='50px'>
-                <Td border={'none'}>#876364</Td>
-                <Td border={'none'}>Stephen Nico</Td>
-                <Td border={'none'}>Bitcoin Developer</Td>
-                <Td border={'none'}>1 Month</Td>
-                <Td border={'none'}>Pending</Td>
-                <Td border={'none'}>
+              <Tr color={"#000000"} fontSize={"13px"} h="50px">
+                <Td border={"none"}>#876364</Td>
+                <Td border={"none"}>Stephen Nico</Td>
+                <Td border={"none"}>Bitcoin Developer</Td>
+                <Td border={"none"}>1 Month</Td>
+                <Td border={"none"}>Pending</Td>
+                <Td border={"none"}>
                   {/* <Progress colorScheme="pink" borderRadius={'10px'} value={100} w="80px" /> */}
                   <Text>100%</Text>
                 </Td>
               </Tr>
-              <Tr color={"#000000"} fontSize={'13px'} h='50px'>
-                <Td border={'none'}>#876364</Td>
-                <Td border={'none'}>Stephen Nico</Td>
-                <Td border={'none'}>Bitcoin Developer</Td>
-                <Td border={'none'}>1 Month</Td>
-                <Td border={'none'}>Pending</Td>
-                <Td border={'none'}>
+              <Tr color={"#000000"} fontSize={"13px"} h="50px">
+                <Td border={"none"}>#876364</Td>
+                <Td border={"none"}>Stephen Nico</Td>
+                <Td border={"none"}>Bitcoin Developer</Td>
+                <Td border={"none"}>1 Month</Td>
+                <Td border={"none"}>Pending</Td>
+                <Td border={"none"}>
                   {/* <Progress colorScheme="pink" borderRadius={'10px'} value={50} w="80px" /> */}
                   <Text>50%</Text>
                 </Td>
               </Tr>
-              <Tr color={"#000000"} fontSize={'13px'} h='50px'>
-                <Td border={'none'}>#876364</Td>
-                <Td border={'none'}>Stephen Nico</Td>
-                <Td border={'none'}>Bitcoin Developer</Td>
-                <Td border={'none'}>1 Month</Td>
-                <Td border={'none'}>Pending</Td>
-                <Td border={'none'}>
+              <Tr color={"#000000"} fontSize={"13px"} h="50px">
+                <Td border={"none"}>#876364</Td>
+                <Td border={"none"}>Stephen Nico</Td>
+                <Td border={"none"}>Bitcoin Developer</Td>
+                <Td border={"none"}>1 Month</Td>
+                <Td border={"none"}>Pending</Td>
+                <Td border={"none"}>
                   {/* <Progress colorScheme="pink" borderRadius={'10px'} value={100} w="80px" /> */}
                   <Text>100%</Text>
                 </Td>
               </Tr>
-              
             </Tbody>
           </Table>
         </TableContainer>
@@ -288,7 +287,7 @@ const CustomStatisticCard = ({ title, length, children, bgColor }) => {
         <Box>
           <Text
             color={"#ACACAC"}
-            className="nunito"
+            className="poppins"
             fontSize="14.5px"
             fontWeight="400"
           >

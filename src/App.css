@@ -12,6 +12,7 @@
   --hash:#827777;
   --fadebg:#FAFAFA;
   --borders:#9C9696;
+  --check: #0000002e;
 }
 
 .archivo {
@@ -24,6 +25,10 @@
 
 .nunito {
   font-family: 'Nunito', sans-serif !important;
+}
+
+.poppins {
+  font-family: 'Poppins', sans-serif !important;
 }
 
 .test-color {

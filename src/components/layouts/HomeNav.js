@@ -32,7 +32,7 @@ const HomeNav = () => {
           <HStack gap={"35px"}>
             <NavLink to="/find-work">
               <Text
-                className="nunito"
+                className="poppins"
                 color={"var(--pink)"}
                 fontSize={"16px"}
                 fontWeight={500}
@@ -43,7 +43,7 @@ const HomeNav = () => {
             </NavLink>
             <NavLink to="#">
               <Text
-                className="nunito"
+                className="poppins"
                 color={"var(--dark-900)"}
                 fontSize={"16px"}
                 fontWeight={500}
@@ -53,7 +53,7 @@ const HomeNav = () => {
             </NavLink>
             <NavLink to="#">
               <Text
-                className="nunito"
+                className="poppins"
                 color={"var(--dark-900)"}
                 fontSize={"16px"}
                 fontWeight={500}

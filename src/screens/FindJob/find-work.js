@@ -21,26 +21,26 @@ import HomeNav from "../../components/layouts/HomeNav";
 
 const skillTag = () => {
   return (
-    <Flex justify={{ base: 'center', lg: 'start' }} gap={"15px"}>
+    <Flex justify={{ base: "center", lg: "start" }} gap={"15px"}>
       <Text
-        className="nunito"
+        className="poppins"
         fontWeight={400}
         bgColor={"#F7F8F8"}
-        p={{ base: '2px 10px', lg: "4px 20px" }}
+        p={{ base: "2px 10px", lg: "4px 20px" }}
         border={"1px solid #DBE1E7"}
-        borderRadius={'100px'}
-        fontSize={{ base: '12px', lg: "18px" }}
+        borderRadius={"100px"}
+        fontSize={{ base: "12px", lg: "18px" }}
       >
         Bitcoin
       </Text>
       <Text
-        className="nunito"
+        className="poppins"
         fontWeight={400}
         bgColor={"#F7F8F8"}
-        p={{ base: '2px 10px', lg: "4px 20px" }}
+        p={{ base: "2px 10px", lg: "4px 20px" }}
         border={"1px solid #DBE1E7"}
-        borderRadius={'100px'}
-        fontSize={{ base: '12px', lg: "18px" }}
+        borderRadius={"100px"}
+        fontSize={{ base: "12px", lg: "18px" }}
       >
         Design
       </Text>
@@ -60,31 +60,31 @@ const WorKCard = ({
 }) => {
   return (
     <VStack
-      align={'start'}
-      gap='10px'
+      align={"start"}
+      gap="10px"
       p="20px"
       borderRadius={"20px"}
       border={"1px solid #DBE1E7"}
-      mt='20px'
-      w={{ base: 'full', lg: "1110px" }}
+      mt="20px"
+      w={{ base: "full", lg: "1110px" }}
     >
       <Text
-        className="nunito"
+        className="poppins"
         color="var(--dark-900)"
         fontWeight={700}
-        fontSize={{ base: '18px', lg: "25px" }}
-        textAlign={{ base: 'center', lg: 'left' }}
+        fontSize={{ base: "18px", lg: "25px" }}
+        textAlign={{ base: "center", lg: "left" }}
       >
         {title}
       </Text>
       <HStack
         align={"start"}
-        gap={{ base: '8px', lg: "15px" }}
-        className="nunito"
-        fontSize={{ base: '10px', lg: "18px" }}
+        gap={{ base: "8px", lg: "15px" }}
+        className="poppins"
+        fontSize={{ base: "10px", lg: "18px" }}
         fontWeight={500}
         color="var(--dark-900)"
-        textAlign={{ base: 'center', lg: 'left' }}
+        textAlign={{ base: "center", lg: "left" }}
       >
         <Text>{priceType}</Text>
         <Text>{level}</Text>
@@ -92,45 +92,45 @@ const WorKCard = ({
         <Text>Posted {time} ago</Text>
       </HStack>
       <Text
-        className="nunito"
+        className="poppins"
         fontWeight={400}
-        fontSize={{ base: '15px', lg: "18px" }}
+        fontSize={{ base: "15px", lg: "18px" }}
         color="var(--dark-900)"
-        textAlign={{ base: 'center', lg: 'left' }}
+        textAlign={{ base: "center", lg: "left" }}
       >
         {description}
       </Text>
       {skillTag()}
-      <HStack align={{ base: 'center', lg: "start"}} gap={"15px"}>
+      <HStack align={{ base: "center", lg: "start" }} gap={"15px"}>
         <HStack align={"center"} gap={"6px"}>
           <MdVerified color="var(--pink)" />
           <Text
-            className="nunito"
+            className="poppins"
             color={"var(--dark-900)"}
             fontWeight={500}
-            fontSize={{ base: '12px', lg: "16px" }}
+            fontSize={{ base: "12px", lg: "16px" }}
           >
             Payment Verified
           </Text>
         </HStack>
-        <HStack align={'center'} gap={"6px"}>
+        <HStack align={"center"} gap={"6px"}>
           <BsStarFill color="#FF9800" />
           <Text
-            className="nunito"
+            className="poppins"
             color={"var(--dark-900)"}
             fontWeight={500}
-            fontSize={{ base: '12px', lg: "16px" }}
+            fontSize={{ base: "12px", lg: "16px" }}
           >
             {ratings}
           </Text>
         </HStack>
-        <HStack align={'center'} gap={"6px"}>
+        <HStack align={"center"} gap={"6px"}>
           <TiLocation color="var(--dark-900)" />
           <Text
-            className="nunito"
+            className="poppins"
             color={"var(--dark-900)"}
             fontWeight={500}
-            fontSize={{ base: '12px', lg: "16px" }}
+            fontSize={{ base: "12px", lg: "16px" }}
           >
             {location}
           </Text>
@@ -144,25 +144,25 @@ const FindWork = () => {
   return (
     <>
       <TopNav />
-      <Box p={{ base: '0', lg: "0 80px" }}>
+      <Box p={{ base: "0", lg: "0 80px" }}>
         <Flex
           flexDir={"column"}
-          align={{ base: 'center', lg: 'start' }}
+          align={{ base: "center", lg: "start" }}
           justify={"center"}
-          p={{ base: '0', lg: "0 80px" }}
+          p={{ base: "0", lg: "0 80px" }}
           bgImage={"/assets/findwork-hero.png"}
           bgColor="#000"
           // bgBlendMode={'overlay'}
           borderRadius={"10px"}
           h="420px"
-          maxW={{ base: 'full', lg: "1110px" }}
+          maxW={{ base: "full", lg: "1110px" }}
           mx="auto"
         >
           <Text
             bgColor={"#1671D9"}
             borderRadius={"12px"}
             color="#fff"
-            className="nunito"
+            className="poppins"
             fontSize={"14px"}
             fontWeight={600}
             textAlign={"center"}
@@ -172,14 +172,14 @@ const FindWork = () => {
             ENDLESS SUMMER SALE
           </Text>
           <Text
-            fontSize={{ base: '20px', lg: "55px" }}
+            fontSize={{ base: "20px", lg: "55px" }}
             fontWeight={500}
             color={"#fff"}
-            className="nunito"
-            lineHeight={{ base: '30px', lg: "63px" }}
-            maxW={{ base: 'full', lg: "450px" }}
+            className="poppins"
+            lineHeight={{ base: "30px", lg: "63px" }}
+            maxW={{ base: "full", lg: "450px" }}
             my="15px"
-            textAlign={{ base: 'center', lg: 'left' }}
+            textAlign={{ base: "center", lg: "left" }}
           >
             Up to{" "}
             <Text as={"span"} fontWeight={700}>
@@ -201,7 +201,7 @@ const FindWork = () => {
             w="141px"
             h="56px"
           >
-            <Text className="nunito" fontWeight={600} fontSize={"16px"}>
+            <Text className="poppins" fontWeight={600} fontSize={"16px"}>
               Shop Now
             </Text>
             <AiOutlineRight />
@@ -209,20 +209,20 @@ const FindWork = () => {
         </Flex>
         <Box mt="25px">
           <Text
-            className="nunito"
+            className="poppins"
             color="1a1a1a"
-            fontSize={{ base: '20px', lg: "30px" }}
+            fontSize={{ base: "20px", lg: "30px" }}
             fontWeight={700}
-            textAlign={{ base: 'center', lg: 'left' }}
+            textAlign={{ base: "center", lg: "left" }}
           >
             Jobs you might like
           </Text>
           <Text
-            className="nunito"
+            className="poppins"
             color="var(--dark-900)"
-            fontSize={{ base: '16px', lg: "20px" }}
+            fontSize={{ base: "16px", lg: "20px" }}
             fontWeight={400}
-            textAlign={{ base: 'center', lg: 'left' }}
+            textAlign={{ base: "center", lg: "left" }}
           >
             Browse and search jobs that match your experience to a client's
             hiring preferences. Ordered by most relevant.

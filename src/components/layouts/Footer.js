@@ -4,11 +4,14 @@ import React from "react";
 const Footer = () => {
   return (
     <>
-      <Box bgColor={"#6F1E00"} p="100px 120px" my="30px" mx="20px" borderRadius={"20px"}>
-        <Flex
-          align={"center"}
-          justify={"space-between"}
-        >
+      <Box
+        bgColor={"#6F1E00"}
+        p="100px 120px"
+        my="30px"
+        mx="20px"
+        borderRadius={"20px"}
+      >
+        <Flex align={"center"} justify={"space-between"}>
           <VStack align={"start"} gap="20px">
             <HStack>
               <Img src="/skillbit-logo.svg" alt="logo" />
@@ -23,16 +26,16 @@ const Footer = () => {
                 Skillbit
               </Text>
             </HStack>
-            <Text className="nunito" fontSize={"14px"} color="#fff" w="308px">
+            <Text className="poppins" fontSize={"14px"} color="#fff" w="308px">
               SkillBit: Your Gateway to Effortlessly Streamlining Bitcoin Hiring
-              and Executing Secure Bitcoin (BTC) Transactions for African Bitcoin
-              Talents
+              and Executing Secure Bitcoin (BTC) Transactions for African
+              Bitcoin Talents
             </Text>
           </VStack>
           <Flex align={"start"} gap="80px">
             <VStack align={"start"} gap="20px">
               <Text
-                className="nunito"
+                className="poppins"
                 color="#DAE0EF"
                 fontWeight={700}
                 fontSize={"16px"}
@@ -42,7 +45,7 @@ const Footer = () => {
               <VStack
                 align={"start"}
                 gap="15px"
-                className="nunito"
+                className="poppins"
                 color="#DAE0EF"
                 fontWeight={400}
                 fontSize={"16px"}
@@ -54,7 +57,7 @@ const Footer = () => {
             </VStack>
             <VStack align={"start"} gap="20px">
               <Text
-                className="nunito"
+                className="poppins"
                 color="#DAE0EF"
                 fontWeight={700}
                 fontSize={"16px"}
@@ -64,7 +67,7 @@ const Footer = () => {
               <VStack
                 align={"start"}
                 gap="15px"
-                className="nunito"
+                className="poppins"
                 color="#DAE0EF"
                 fontWeight={400}
                 fontSize={"16px"}
@@ -76,7 +79,7 @@ const Footer = () => {
             </VStack>
             <VStack align={"start"} gap="20px">
               <Text
-                className="nunito"
+                className="poppins"
                 color="#DAE0EF"
                 fontWeight={700}
                 fontSize={"16px"}
@@ -86,7 +89,7 @@ const Footer = () => {
               <VStack
                 align={"start"}
                 gap="15px"
-                className="nunito"
+                className="poppins"
                 color="#DAE0EF"
                 fontWeight={400}
                 fontSize={"16px"}
@@ -97,7 +100,7 @@ const Footer = () => {
             </VStack>
           </Flex>
         </Flex>
-        <Text className="nunito" fontSize={"14px"} color="#fff" mt='40px'>
+        <Text className="poppins" fontSize={"14px"} color="#fff" mt="40px">
           &copy; {new Date().getFullYear()} SkillBit. All rights reserved.
         </Text>
       </Box>

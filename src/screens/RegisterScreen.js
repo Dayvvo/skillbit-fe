@@ -1,28 +1,26 @@
-import { Box,  Flex, Input, Text, } from "@chakra-ui/react";
+import { Box, Flex, Input, Text } from "@chakra-ui/react";
 import React, { useState } from "react";
 import { NavLink } from "react-router-dom";
 import { AiOutlineEye } from "react-icons/ai";
 import TopNav from "../components/layouts/TopNav";
 
 const RegisterScreen = () => {
-  const [submitting,setSubmitting] = useState(false)
+  const [submitting, setSubmitting] = useState(false);
 
-  const submit = ()=> {
-    try{
-      setSubmitting(true)
-      console.log('signup state')
+  const submit = () => {
+    try {
+      setSubmitting(true);
+      console.log("signup state");
       // handleUserLogin(signUpState)
-    }
-    catch(err){
-      console.log('err occured',err)
-    }
-    finally{
+    } catch (err) {
+      console.log("err occured", err);
+    } finally {
       setTimeout(() => {
-        setSubmitting(false)        
+        setSubmitting(false);
       }, 1500);
     }
-  }
-  
+  };
+
   return (
     <>
       <TopNav />
@@ -37,7 +35,7 @@ const RegisterScreen = () => {
         ></Box>
         <Box p={{ base: "20px", lg: "40px" }}>
           <Text
-            className="nunito"
+            className="poppins"
             color={"#090909"}
             fontWeight={700}
             fontSize={"24px"}
@@ -45,7 +43,7 @@ const RegisterScreen = () => {
             Create your account
           </Text>
           <Text
-            className="nunito"
+            className="poppins"
             color={"#666666"}
             fontWeight={400}
             fontSize={{ base: "14px", lg: "16px" }}
@@ -57,7 +55,7 @@ const RegisterScreen = () => {
           <Box mt="30px">
             <Box>
               <Text
-                className="nunito"
+                className="poppins"
                 fontWeight={500}
                 fontSize={"14px"}
                 color="#101928"
@@ -81,7 +79,7 @@ const RegisterScreen = () => {
             </Box>
             <Box mt="20px">
               <Text
-                className="nunito"
+                className="poppins"
                 fontWeight={500}
                 fontSize={"14px"}
                 color="#101928"
@@ -105,7 +103,7 @@ const RegisterScreen = () => {
             </Box>
             <Box mt="20px">
               <Text
-                className="nunito"
+                className="poppins"
                 fontWeight={500}
                 fontSize={"14px"}
                 color="#101928"
@@ -134,7 +132,7 @@ const RegisterScreen = () => {
             </Box>
             <Box mt="20px">
               <Text
-                className="nunito"
+                className="poppins"
                 fontWeight={500}
                 fontSize={"14px"}
                 color="#101928"
@@ -162,7 +160,7 @@ const RegisterScreen = () => {
               </Box>
             </Box>
             <Text
-              className="nunito"
+              className="poppins"
               color={"#666666"}
               fontWeight={400}
               fontSize={"14px"}
@@ -190,7 +188,7 @@ const RegisterScreen = () => {
               p="10px 50px"
               border={"1px solid #FE4600"}
               borderRadius={"4px"}
-              bgColor={'#fff'}
+              bgColor={"#fff"}
               color="#FE4600"
               fontSize={"16px"}
             >
@@ -209,16 +207,16 @@ const RegisterScreen = () => {
               Continue
             </Box>
           </Flex>
-          <Flex align={"center"} justify={"center"} gap='6px' mt='10px'>
+          <Flex align={"center"} justify={"center"} gap="6px" mt="10px">
             <Text
-              className="nunito"
+              className="poppins"
               fontWeight={400}
               fontSize={"14px"}
               color={"#666666"}
             >
               Already have an account?
             </Text>
-            <NavLink to='/login'>
+            <NavLink to="/login">
               <Text as="button" color={"#FE4600"}>
                 Sign In
               </Text>
