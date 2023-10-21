@@ -14,8 +14,7 @@ import ModalComponent from './components/layouts/Modal';
 import FindWork from './screens/FindJob/find-work';
 import PrivateRoute from './components/routing/PrivateRoute';
 import useLogin from './hooks/useLogin'
-import UserOnboardingDetails from './screens/teams/onboarding/userDetails';
-import DashboardModal from './components/dashboard/DashboardModal';
+import DashboardModal from './screens/Admin/DashboardModal';
 
 const App = () => {
   

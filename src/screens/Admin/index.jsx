@@ -21,73 +21,34 @@ import AdminAsideBar from "../../components/layouts/AdminAsideBar";
 import {  AiOutlineDown } from "react-icons/ai";
 
 import useWidget from "../../hooks/useWidget";
+import JobScreen from "./DashboardModal";
+import { mockDb } from "../../store/mock";
 
 const AdminDashboard = () => {
 
 
   const {openModal,isOpen,closeModal:close} = useWidget()
 
-  const StartM = <></>
 
-  const viewOngoingProject = ()=>  
+  const {ongoingProjects} = mockDb
+
+  const viewOngoingProject = (id)=> { 
     openModal({
-      children: StartM,
-      size: 'xl',
+      children: JobScreen,
+      size: 'full',
       isOpen: true,
+      scrollBehavior:'inside',
       payload:{
-         close
-     
+         close,
+         profile: ongoingProjects.find(entry=>entry.projectId===id)
+         
       }
-    });
+    })
+  };
 
 
   return (
     <AdminAsideBar>
-      {/* <Flex
-        align="center"
-        px="30px"
-        h="80px"
-        justify={"space-between"}
-        bg={"#FFFFFF"}
-        borderBottom={"1px solid #dbe1e7"}
-      >
-        <Text
-          className="nunito"
-          color={"#090909"}
-          fontSize={"20px"}
-          fontWeight="700"
-        >
-          Overview
-        </Text>
-        <Flex gap={"30px"} align="center">
-          <Flex align={"center"} gap="15px">
-            <Circle w="38px" h="38px" bgColor={"#F1F1F1"}></Circle>
-            <Box>
-              <Text
-                color={"#090909"}
-                fontSize={"14px"}
-                className="nunito"
-                fontWeight={500}
-              >
-                Emmanuel Ike
-              </Text>
-              <Text
-                color={"#848484"}
-                fontSize={"10px"}
-                className="nunito"
-                fontWeight={400}
-              >
-                @theemmanuel
-              </Text>
-            </Box>
-          </Flex>
-          <AiOutlineCaretDown color={"#090909"} fontSize={"20px"} />
-        </Flex>
-      </Flex> */}
-
-      {/* <Text fontSize={"16"} color="gray.500">
-        You can now see all onboarding information of your organization.
-      </Text> */}
 
       <Flex
         mt={"10"}
@@ -212,71 +173,21 @@ const AdminDashboard = () => {
               </Tr>
             </Thead>
             <Tbody>
-              <Tr color={"#000000"} fontSize={'13px'} bgColor={'#fff'} h='50px'>
-                <Td border={'none'} mt='10px'>#876364</Td>
-                <Td border={'none'}>Stephen Nico</Td>
-                <Td border={'none'}>Bitcoin Developer</Td>
-                <Td border={'none'}>1 Month</Td>
-                <Td border={'none'}>Pending</Td>
-                <Td border={'none'}>
-                  <Text>100%</Text>
-                </Td>
-              </Tr>
-              <Tr color={"#000000"} fontSize={'13px'} h='50px'>
-                <Td border={'none'}>#876364</Td>
-                <Td border={'none'}>Stephen Nico</Td>
-                <Td border={'none'}>Bitcoin Developer</Td>
-                <Td border={'none'}>1 Month</Td>
-                <Td border={'none'}>Pending</Td>
-                <Td border={'none'}>
-                  {/* <Progress colorScheme="pink" borderRadius={'10px'} value={50} w="80px" /> */}
-                  <Text>50%</Text>
-                </Td>
-              </Tr>
-              <Tr color={"#000000"} fontSize={'13px'} h='50px'>
-                <Td border={'none'}>#876364</Td>
-                <Td border={'none'}>Stephen Nico</Td>
-                <Td border={'none'}>Bitcoin Developer</Td>
-                <Td border={'none'}>1 Month</Td>
-                <Td border={'none'}>Pending</Td>
-                <Td border={'none'}>
-                  {/* <Progress colorScheme="pink" borderRadius={'10px'} value={100} w="80px" /> */}
-                  <Text>100%</Text>
-                </Td>
-              </Tr>
-              <Tr color={"#000000"} fontSize={'13px'} h='50px'>
-                <Td border={'none'}>#876364</Td>
-                <Td border={'none'}>Stephen Nico</Td>
-                <Td border={'none'}>Bitcoin Developer</Td>
-                <Td border={'none'}>1 Month</Td>
-                <Td border={'none'}>Pending</Td>
-                <Td border={'none'}>
-                  {/* <Progress colorScheme="pink" borderRadius={'10px'} value={100} w="80px" /> */}
-                  <Text>100%</Text>
-                </Td>
-              </Tr>
-              <Tr color={"#000000"} fontSize={'13px'} h='50px'>
-                <Td border={'none'}>#876364</Td>
-                <Td border={'none'}>Stephen Nico</Td>
-                <Td border={'none'}>Bitcoin Developer</Td>
-                <Td border={'none'}>1 Month</Td>
-                <Td border={'none'}>Pending</Td>
-                <Td border={'none'}>
-                  {/* <Progress colorScheme="pink" borderRadius={'10px'} value={50} w="80px" /> */}
-                  <Text>50%</Text>
-                </Td>
-              </Tr>
-              <Tr color={"#000000"} fontSize={'13px'} h='50px'>
-                <Td border={'none'}>#876364</Td>
-                <Td border={'none'}>Stephen Nico</Td>
-                <Td border={'none'}>Bitcoin Developer</Td>
-                <Td border={'none'}>1 Month</Td>
-                <Td border={'none'}>Pending</Td>
-                <Td border={'none'}>
-                  {/* <Progress colorScheme="pink" borderRadius={'10px'} value={100} w="80px" /> */}
-                  <Text>100%</Text>
-                </Td>
-              </Tr>
+              {
+                mockDb.ongoingProjects?.map((projectRow,index)=>                
+                  <Tr cursor={'pointer'} _hover={{bg:'#f6f6f7'}} color={"#000000"} 
+                   onClick={()=>viewOngoingProject(projectRow.projectId)} key={index} fontSize={'13px'} bgColor={'#fff'} h='50px'>
+                    <Td border={'none'} mt='10px'>#876364</Td>
+                    <Td border={'none'}>{projectRow.hireName}</Td>
+                    <Td border={'none'}>{projectRow.role}</Td>
+                    <Td border={'none'}>{projectRow.duration}</Td>
+                    <Td border={'none'}>{projectRow.paymentStatus}</Td>
+                    <Td border={'none'}>
+                      <Text>{projectRow.projectStatus}%</Text>
+                    </Td>
+                  </Tr>
+                )
+              }
               
             </Tbody>
           </Table>
