@@ -18,7 +18,7 @@ import {
 } from "@chakra-ui/react";
 
 import AdminAsideBar from "../../components/layouts/AdminAsideBar";
-import {  AiOutlineDown } from "react-icons/ai";
+import { AiOutlineDown } from "react-icons/ai";
 
 import useWidget from "../../hooks/useWidget";
 import JobScreen from "./DashboardModal";
@@ -91,10 +91,10 @@ const AdminDashboard = () => {
         </CustomStatisticCard>
       </Flex>
 
-      <Box mb='30px'>
+      <Box mb="30px">
         <Flex justify={"space-between"} align="center" my="25px">
           <Text
-            className="nunito"
+            className="poppins"
             color="#000000"
             fontSize={"22px"}
             fontWeight={600}
@@ -104,7 +104,7 @@ const AdminDashboard = () => {
           <Flex gap="20px">
             <Flex
               bgColor={"#f9fbff"}
-              className="nunito"
+              className="poppins"
               gap="10px"
               align="center"
               p="8px"
@@ -125,7 +125,7 @@ const AdminDashboard = () => {
             </Flex>
             <Text
               bgColor={"#f9fbff"}
-              className="nunito"
+              className="poppins"
               p="8px"
               borderRadius={"4px"}
               color={"#FD4600"}
@@ -139,33 +139,33 @@ const AdminDashboard = () => {
         <TableContainer bg="#fff">
           <Table variant="simple">
             <Thead>
-              <Tr h='50px'>
-                <Th border={'none'}>
+              <Tr h="50px">
+                <Th border={"none"}>
                   <Text fontWeight={400} color={"#030229"} fontSize={"14px"}>
                     Project Id
                   </Text>
                 </Th>
-                <Th border={'none'}>
+                <Th border={"none"}>
                   <Text fontWeight={400} color={"#030229"} fontSize={"14px"}>
                     Professional Name
                   </Text>
                 </Th>
-                <Th border={'none'}>
+                <Th border={"none"}>
                   <Text fontWeight={400} color={"#030229"} fontSize={"14px"}>
                     Role
                   </Text>
                 </Th>
-                <Th border={'none'}>
+                <Th border={"none"}>
                   <Text fontWeight={400} color={"#030229"} fontSize={"14px"}>
                     Duration
                   </Text>
                 </Th>
-                <Th border={'none'}>
+                <Th border={"none"}>
                   <Text fontWeight={400} color={"#030229"} fontSize={"14px"}>
                     Payment Status
                   </Text>
                 </Th>
-                <Th border={'none'}>
+                <Th border={"none"}>
                   <Text fontWeight={400} color={"#030229"} fontSize={"14px"}>
                     Project Status
                   </Text>
@@ -215,7 +215,7 @@ const CustomStatisticCard = ({ title, length, children, bgColor }) => {
         <Box>
           <Text
             color={"#ACACAC"}
-            className="nunito"
+            className="poppins"
             fontSize="14.5px"
             fontWeight="400"
           >

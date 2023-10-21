@@ -17,6 +17,7 @@ import useLogin from './hooks/useLogin'
 import UserOnboardingDetails from './screens/teams/onboarding/userDetails';
 import DashboardModal from './components/dashboard/DashboardModal';
 import JobDetail from './screens/FindJob/JobDetail';
+import HomePage from './screens/HomePage';
 
 const App = () => {
   
@@ -36,6 +37,8 @@ const App = () => {
             <ModalComponent />
             <Switch>
               <PrivateRoute exact path="/" component={DashboardScreen} />
+              <Route exact path="/" component={HomePage} />
+              <Route path="/dashboard" component={DashboardScreen} />
               <Route path="/find-work" component={FindWork} />
               <Route path="/job-detail" component={JobDetail} />
               <Route path="/login" component={LoginScreen} />
