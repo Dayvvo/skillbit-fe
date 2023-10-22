@@ -160,15 +160,15 @@ const JobDetail = () => {
 
                 <Box p="2.5rem" display="flex" justifyContent="space-between">
                     <Box display="flex">
-                        <Box p="20px 40px" border="1px solid #FE4600" color="#FE4600" sx={hoverEffect} mr="1.5rem" borderRadius="4.13px">
+                        <Box p="20px 40px" border="1px solid #FE4600" color="#FE4600" cursor={'pointer'} sx={hoverEffect} mr="1.5rem" borderRadius="4.13px">
                             <Text fontSize="20px" lineHeight="30px" fontWeight="500">Apply Now</Text>
                         </Box>
-                        <Box p="20px 40px" border="1px solid #FE4600" color="#FE4600" sx={hoverEffect} borderRadius="4.13px">
+                        <Box p="20px 40px" border="1px solid #FE4600" color="#FE4600" cursor={'pointer'} sx={hoverEffect} borderRadius="4.13px">
                             <Text fontSize="20px" lineHeight="30px" fontWeight="500">Save Job</Text>
                         </Box>
                     </Box>
 
-                    <Box display="flex" alignItems="center">
+                    <Box display="flex" alignItems="center" cursor={'pointer'}>
                         <FaFlag size="18px" color='#FE4600'/>
                         <Text fontSize="20px" lineHeight="30px" fontWeight="500" color='#FE4600' ml="1rem">Report Job Post</Text>
                     </Box>
@@ -186,7 +186,7 @@ const JobDetail = () => {
         </Box>
 
         <Box display="flex" justifyContent="center" p="2rem 0 10rem 0">
-             <Box p="10px 40px" border="1px solid #FE4600" color="#FE4600" sx={hoverEffect} mr="1.5rem" borderRadius="4.13px">
+             <Box p="10px 40px" border="1px solid #FE4600" color="#FE4600" cursor={'pointer'} sx={hoverEffect} mr="1.5rem" borderRadius="4.13px">
                 <Text fontSize="20px" lineHeight="30px" fontWeight="500">See All</Text>
             </Box>
         </Box>

@@ -39,7 +39,7 @@ const navContainerStyles = {
   },
 };
 
-const AdminAsideBar = ({ children }) => {
+const UserAsideBar = ({ children }) => {
   // control displaying menu
   const drawer = useMenu();
 
@@ -113,24 +113,14 @@ const AdminAsideBar = ({ children }) => {
               <CustomRouteLink
                 title={'Overview'}
                 icon={<MdSpaceDashboard />}
-                route={'/overview'}
+                route={'/user/overview'}
               />
               <CustomRouteLink
                 title={'Applications'}
                 icon={<MdWorkspaces />}
-                route={'/workspace'}
+                route={'/user/project'}
               />
-              <CustomRouteLink
-                title={'Transactions'}
-                icon={<AiOutlineTransaction />}
-                // active
-                route={'/admin/logs'}
-              />
-              <CustomRouteLink
-                title={'Payments'}
-                icon={<MdOutlinePayments />}
-                route={'/teams'}
-              />
+              
               <CustomRouteLink
                 title={'Message'}
                 icon={<BiMessageDots />}
@@ -196,4 +186,4 @@ const CustomRouteLink = ({ route, title, icon }) => {
   );
 };
 
-export default AdminAsideBar;
+export default UserAsideBar;
