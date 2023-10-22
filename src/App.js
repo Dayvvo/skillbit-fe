@@ -12,11 +12,18 @@ import DashboardScreen from './screens/DashboardScreen';
 import LoginScreen from './screens/LoginScreen';
 import ModalComponent from './components/layouts/Modal';
 import FindWork from './screens/FindJob/find-work';
+import PrivateRoute from './components/routing/PrivateRoute';
+import useLogin from './hooks/useLogin'
+import UserOnboardingDetails from './screens/teams/onboarding/userDetails';
+import DashboardModal from './components/dashboard/DashboardModal';
+import JobDetail from './screens/FindJob/JobDetail';
 import HomePage from './screens/HomePage';
 import UserProject from './screens/User/UserProject';
 import UserDashboard from './screens/User/UserDashboard';
 
 const App = () => {
+  
+  useLogin()
   return (
     <>
       <Helmet>
@@ -31,13 +38,16 @@ const App = () => {
           <Router>
             <ModalComponent />
             <Switch>
+              <PrivateRoute exact path="/" component={DashboardScreen} />
               <Route exact path="/" component={HomePage} />
               <Route path="/seller/overview" component={DashboardScreen} />
               <Route path="/user/overview" component={UserDashboard} />
               <Route path="/user/project" component={UserProject} />
               <Route path="/find-work" component={FindWork} />
+              <Route path="/job-detail" component={JobDetail} />
               <Route path="/login" component={LoginScreen} />
               <Route path="/signup" component={RegisterScreen} />
+              <Route path="/modal" component={DashboardModal} />
               <Route component={NotFoundScreen} />
             </Switch>
           </Router>

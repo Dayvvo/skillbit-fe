@@ -19,7 +19,7 @@ import { TiLocation } from "react-icons/ti";
 import Footer from "../../components/layouts/Footer";
 import HomeNav from "../../components/layouts/HomeNav";
 
-const skillTag = () => {
+export const skillTag = () => {
   return (
     <Flex justify={{ base: "center", lg: "start" }} gap={"15px"}>
       <Text
@@ -48,7 +48,7 @@ const skillTag = () => {
   );
 };
 
-const WorKCard = ({
+export const WorKCard = ({
   title,
   priceType,
   level,

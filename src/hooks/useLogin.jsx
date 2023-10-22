@@ -27,8 +27,7 @@ const useLogin = () => {
 
   useEffect(() => {
     (() => {
-      let token  = localStorage.get('skillbit-auth');
-      console.log('parsed',JSON.parse(token))
+      let token  = localStorage.getItem('skillbit-auth');
       token && setAuth({
         ...JSON.parse(token),
         isAuthenticated:true    

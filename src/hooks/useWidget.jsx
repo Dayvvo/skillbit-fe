@@ -28,7 +28,7 @@ const useWidget = ()=>{
         });
     }
       
-    const openModal = useCallback(async({children,size,payload,onClose})=>{
+    const openModal = useCallback(async({children,size,payload,onClose,...rest})=>{
         // console.log('opening modal',isOpen)
         
         dispatch(openMod({
@@ -36,7 +36,8 @@ const useWidget = ()=>{
             isOpen:true,
             children,
             size,
-            onClose
+            onClose,
+            ...rest
         }));
     },[dispatch,openMod,onOpen,isOpen]);
     

@@ -4,7 +4,6 @@ import {
   GridItem,
   Text,
   Img,
-  Circle,
   TableContainer,
   Table,
   Thead,
@@ -17,7 +16,33 @@ import {
 import AdminAsideBar from "../../components/layouts/AdminAsideBar";
 import { AiOutlineDown } from "react-icons/ai";
 
+import useWidget from "../../hooks/useWidget";
+import JobScreen from "./DashboardModal";
+import { mockDb } from "../../store/mock";
+
 const AdminDashboard = () => {
+
+
+  const {openModal,isOpen,closeModal:close} = useWidget()
+
+
+  const {ongoingProjects} = mockDb
+
+  const viewOngoingProject = (id)=> { 
+    openModal({
+      children: JobScreen,
+      size: 'full',
+      isOpen: true,
+      scrollBehavior:'inside',
+      payload:{
+         close,
+         profile: ongoingProjects.find(entry=>entry.projectId===id)
+         
+      }
+    })
+  };
+
+
   return (
     <AdminAsideBar>
 
@@ -144,74 +169,22 @@ const AdminDashboard = () => {
               </Tr>
             </Thead>
             <Tbody>
-              <Tr color={"#000000"} fontSize={"13px"} bgColor={"#fff"} h="50px">
-                <Td border={"none"} mt="10px">
-                  #876364
-                </Td>
-                <Td border={"none"}>Stephen Nico</Td>
-                <Td border={"none"}>Bitcoin Developer</Td>
-                <Td border={"none"}>1 Month</Td>
-                <Td border={"none"}>Pending</Td>
-                <Td border={"none"}>
-                  {/* <Progress colorScheme="pink" borderRadius={'10px'} value={100} w="80px" /> */}
-                  <Text>100%</Text>
-                </Td>
-              </Tr>
-              <Tr color={"#000000"} fontSize={"13px"} h="50px">
-                <Td border={"none"}>#876364</Td>
-                <Td border={"none"}>Stephen Nico</Td>
-                <Td border={"none"}>Bitcoin Developer</Td>
-                <Td border={"none"}>1 Month</Td>
-                <Td border={"none"}>Pending</Td>
-                <Td border={"none"}>
-                  {/* <Progress colorScheme="pink" borderRadius={'10px'} value={50} w="80px" /> */}
-                  <Text>50%</Text>
-                </Td>
-              </Tr>
-              <Tr color={"#000000"} fontSize={"13px"} h="50px">
-                <Td border={"none"}>#876364</Td>
-                <Td border={"none"}>Stephen Nico</Td>
-                <Td border={"none"}>Bitcoin Developer</Td>
-                <Td border={"none"}>1 Month</Td>
-                <Td border={"none"}>Pending</Td>
-                <Td border={"none"}>
-                  {/* <Progress colorScheme="pink" borderRadius={'10px'} value={100} w="80px" /> */}
-                  <Text>100%</Text>
-                </Td>
-              </Tr>
-              <Tr color={"#000000"} fontSize={"13px"} h="50px">
-                <Td border={"none"}>#876364</Td>
-                <Td border={"none"}>Stephen Nico</Td>
-                <Td border={"none"}>Bitcoin Developer</Td>
-                <Td border={"none"}>1 Month</Td>
-                <Td border={"none"}>Pending</Td>
-                <Td border={"none"}>
-                  {/* <Progress colorScheme="pink" borderRadius={'10px'} value={100} w="80px" /> */}
-                  <Text>100%</Text>
-                </Td>
-              </Tr>
-              <Tr color={"#000000"} fontSize={"13px"} h="50px">
-                <Td border={"none"}>#876364</Td>
-                <Td border={"none"}>Stephen Nico</Td>
-                <Td border={"none"}>Bitcoin Developer</Td>
-                <Td border={"none"}>1 Month</Td>
-                <Td border={"none"}>Pending</Td>
-                <Td border={"none"}>
-                  {/* <Progress colorScheme="pink" borderRadius={'10px'} value={50} w="80px" /> */}
-                  <Text>50%</Text>
-                </Td>
-              </Tr>
-              <Tr color={"#000000"} fontSize={"13px"} h="50px">
-                <Td border={"none"}>#876364</Td>
-                <Td border={"none"}>Stephen Nico</Td>
-                <Td border={"none"}>Bitcoin Developer</Td>
-                <Td border={"none"}>1 Month</Td>
-                <Td border={"none"}>Pending</Td>
-                <Td border={"none"}>
-                  {/* <Progress colorScheme="pink" borderRadius={'10px'} value={100} w="80px" /> */}
-                  <Text>100%</Text>
-                </Td>
-              </Tr>
+              {
+                mockDb.ongoingProjects?.map((projectRow,index)=>                
+                  <Tr cursor={'pointer'} _hover={{bg:'#f6f6f7'}} color={"#000000"} 
+                   onClick={()=>viewOngoingProject(projectRow.projectId)} key={index} fontSize={'13px'} bgColor={'#fff'} h='50px'>
+                    <Td border={'none'} mt='10px'>#876364</Td>
+                    <Td border={'none'}>{projectRow.hireName}</Td>
+                    <Td border={'none'}>{projectRow.role}</Td>
+                    <Td border={'none'}>{projectRow.duration}</Td>
+                    <Td border={'none'}>{projectRow.paymentStatus}</Td>
+                    <Td border={'none'}>
+                      <Text>{projectRow.projectStatus}%</Text>
+                    </Td>
+                  </Tr>
+                )
+              }
+              
             </Tbody>
           </Table>
         </TableContainer>
