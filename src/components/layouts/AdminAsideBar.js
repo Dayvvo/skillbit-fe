@@ -116,7 +116,7 @@ const AdminAsideBar = ({ children }) => {
                 route={'/overview'}
               />
               <CustomRouteLink
-                title={'Projects'}
+                title={'Applications'}
                 icon={<MdWorkspaces />}
                 route={'/workspace'}
               />
