@@ -118,7 +118,7 @@ const UserAsideBar = ({ children }) => {
               <CustomRouteLink
                 title={'Jobs'}
                 icon={<MdWorkspaces />}
-                route={'/user/project'}
+                route={'/user/application'}
               />
               
               <CustomRouteLink
