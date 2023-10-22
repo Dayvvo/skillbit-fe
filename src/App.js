@@ -13,6 +13,8 @@ import LoginScreen from './screens/LoginScreen';
 import ModalComponent from './components/layouts/Modal';
 import FindWork from './screens/FindJob/find-work';
 import HomePage from './screens/HomePage';
+import UserProject from './screens/User/UserProject';
+import UserDashboard from './screens/User/UserDashboard';
 
 const App = () => {
   return (
@@ -30,7 +32,9 @@ const App = () => {
             <ModalComponent />
             <Switch>
               <Route exact path="/" component={HomePage} />
-              <Route path="/dashboard" component={DashboardScreen} />
+              <Route path="/seller/overview" component={DashboardScreen} />
+              <Route path="/user/overview" component={UserDashboard} />
+              <Route path="/user/project" component={UserProject} />
               <Route path="/find-work" component={FindWork} />
               <Route path="/login" component={LoginScreen} />
               <Route path="/signup" component={RegisterScreen} />

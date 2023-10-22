@@ -75,6 +75,7 @@ const LoginScreen = () => {
 
   return (
     <Flex
+      align={'center'}
       w={{ base: "full", lg: "900px" }}
       m={{ base: "20px 0", lg: "30px auto" }}
     >

@@ -1,3 +1,4 @@
+import React from 'react'
 import {
   Flex,
   Box,
@@ -13,14 +14,12 @@ import {
   Tbody,
   Td,
 } from "@chakra-ui/react";
-
-import AdminAsideBar from "../../components/layouts/AdminAsideBar";
 import { AiOutlineDown } from "react-icons/ai";
+import UserAsideBar from '../../components/layouts/UserAsideBar'
 
-const AdminDashboard = () => {
+const UserDashboard = () => {
   return (
-    <AdminAsideBar>
-
+    <UserAsideBar>
       <Flex
         mt={"10"}
         gap="8"
@@ -216,11 +215,10 @@ const AdminDashboard = () => {
           </Table>
         </TableContainer>
       </Box>
-    </AdminAsideBar>
-  );
-};
+    </UserAsideBar>
+  )
+}
 
-// custom card
 const CustomStatisticCard = ({ title, length, children, bgColor }) => {
   return (
     <GridItem>
@@ -258,4 +256,4 @@ const CustomStatisticCard = ({ title, length, children, bgColor }) => {
   );
 };
 
-export default AdminDashboard;
+export default UserDashboard
