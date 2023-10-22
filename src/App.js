@@ -38,8 +38,7 @@ const App = () => {
             <ModalComponent />
             <Switch>
               <Route exact path="/" component={HomePage} />
-              <PrivateRoute path="/hirer/overview" component={DashboardScreen} />
-              <PrivateRoute path="/user/overview" component={UserDashboard} />
+              <PrivateRoute path="/dashboard" component={UserDashboard} />
               <PrivateRoute path="/user/project" component={UserProject} />
               <PrivateRoute path="/find-work" component={FindWork} />
               <PrivateRoute path="/job-detail" component={JobDetail} />
