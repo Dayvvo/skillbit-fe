@@ -1,4 +1,4 @@
-import { Box, Button, Flex, HStack, Img, Text } from "@chakra-ui/react";
+import { Box,  Flex, HStack, Img, Text } from "@chakra-ui/react";
 import React from "react";
 import { NavLink } from "react-router-dom/cjs/react-router-dom";
 
@@ -62,16 +62,20 @@ const HomeNav = () => {
               </Text>
             </NavLink>
           </HStack>
-          <Box
-            as="button"
-            w="131px"
-            h="50px"
-            bgColor={"var(--pink)"}
-            borderRadius={"10px"}
-            color="#fff"
-          >
-            Get Started
-          </Box>
+          <NavLink to='/login'>
+            <Box
+              as="button"
+              w="131px"
+              h="50px"
+              bgColor={"var(--pink)"}
+              borderRadius={"10px"}
+              color="#fff"
+
+            >
+              Get Started
+            </Box>
+          </NavLink>
+
         </Flex>
       </Flex>
     </>

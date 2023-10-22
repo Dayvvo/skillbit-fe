@@ -149,7 +149,7 @@ const useAuthActions = () => {
 
   const logout = () => {
     console.log('logging out',)
-    localStorage.removeItem('peepsdb-auth');
+    localStorage.removeItem('skillbit-auth');
     localStorage.removeItem('first-login');
     sessionStorage.removeItem('geoCoordinates');
     setAuth({});

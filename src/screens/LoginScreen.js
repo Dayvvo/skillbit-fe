@@ -70,7 +70,7 @@ const LoginScreen = () => {
   console.log("auth val", auth);
   // check if authenticated
   if (auth?.token) {
-    return <Redirect to="/" />;
+    return <Redirect to={`/dashboard`} />;
   }
 
   return (

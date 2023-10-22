@@ -14,7 +14,6 @@ import ModalComponent from './components/layouts/Modal';
 import FindWork from './screens/FindJob/find-work';
 import PrivateRoute from './components/routing/PrivateRoute';
 import useLogin from './hooks/useLogin'
-import UserOnboardingDetails from './screens/teams/onboarding/userDetails';
 // import DashboardModal from './components/dashboard/DashboardModal';
 import JobDetail from './screens/FindJob/JobDetail';
 import HomePage from './screens/HomePage';
@@ -39,17 +38,15 @@ const App = () => {
           <Router>
             <ModalComponent />
             <Switch>
-              <PrivateRoute exact path="/" component={DashboardScreen} />
               <Route exact path="/" component={HomePage} />
-              <Route path="/hirer/overview" component={DashboardScreen} />
-              <Route path="/hirer/applications" component={HirerProject} />
-              <Route path="/user/overview" component={UserDashboard} />
-              <Route path="/user/applications" component={UserProject} />
-              <Route path="/find-work" component={FindWork} />
-              <Route path="/job-detail" component={JobDetail} />
+              <PrivateRoute path="/hirer/overview" component={DashboardScreen} />
+              <PrivateRoute path="/hirer/applications" component={HirerProject} />
+              <PrivateRoute path="/user/overview" component={UserDashboard} />
+              <PrivateRoute path="/user/application" component={UserProject} />
+              <PrivateRoute path="/find-work" component={FindWork} />
+              <PrivateRoute path="/job-detail" component={JobDetail} />
               <Route path="/login" component={LoginScreen} />
               <Route path="/signup" component={RegisterScreen} />
-              {/* <Route path="/modal" component={DashboardModal} /> */}
               <Route component={NotFoundScreen} />
             </Switch>
           </Router>
