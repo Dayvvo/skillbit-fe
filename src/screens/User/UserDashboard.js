@@ -5,7 +5,6 @@ import {
   GridItem,
   Text,
   Img,
-  Circle,
   TableContainer,
   Table,
   Thead,
@@ -16,10 +15,16 @@ import {
 } from "@chakra-ui/react";
 import { AiOutlineDown } from "react-icons/ai";
 import UserAsideBar from '../../components/layouts/UserAsideBar'
+import { useEffect } from 'react';
 
 const UserDashboard = () => {
+  
+  useEffect(()=>{
+
+  },[])  
+  
   return (
-    <UserAsideBar>
+    <UserAsideBar userType={'seller'}>
       <Flex
         mt={"10"}
         gap="8"
@@ -93,7 +98,7 @@ const UserDashboard = () => {
               </Text>
               <AiOutlineDown color="#3D3C42" fontSize={"12px"} />
             </Flex>
-            <Text
+            {/* <Text
               bgColor={"#f9fbff"}
               className="poppins"
               p="8px"
@@ -103,7 +108,7 @@ const UserDashboard = () => {
               fontSize={"14px"}
             >
               View Transactions
-            </Text>
+            </Text> */}
           </Flex>
         </Flex>
         <TableContainer bg="#fff">
@@ -117,17 +122,17 @@ const UserDashboard = () => {
                 </Th>
                 <Th border={"none"}>
                   <Text fontWeight={400} color={"#030229"} fontSize={"14px"}>
-                    Professional Name
+                    Owner
                   </Text>
                 </Th>
                 <Th border={"none"}>
                   <Text fontWeight={400} color={"#030229"} fontSize={"14px"}>
-                    Role
+                    Duration(Days)
                   </Text>
                 </Th>
                 <Th border={"none"}>
                   <Text fontWeight={400} color={"#030229"} fontSize={"14px"}>
-                    Duration
+                    Hours Per Day
                   </Text>
                 </Th>
                 <Th border={"none"}>

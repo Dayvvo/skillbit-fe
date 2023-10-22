@@ -6,7 +6,9 @@ import UserDashboard from './User/UserDashboard';
 const DashboardScreen = () => {
   const {auth} = useAuthActions()
   
-  if(auth?.userType ==='seller'){
+  console.log('auth',auth)
+
+  if(auth?.accountType ==='seller'){
     return <UserDashboard />;
   }
   return <AdminDashboard />;

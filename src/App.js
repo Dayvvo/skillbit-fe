@@ -18,7 +18,7 @@ import useLogin from './hooks/useLogin'
 import JobDetail from './screens/FindJob/JobDetail';
 import HomePage from './screens/HomePage';
 import UserProject from './screens/User/UserProject';
-import UserDashboard from './screens/User/UserDashboard';
+import UserDashboard from './screens/DashboardScreen';
 
 const App = () => {
   

@@ -114,7 +114,7 @@ const useAuthActions = () => {
 
       let user = setUsers.find(user=>user.email===email && user.password ===password);
 
-      console.log('email and pass',email,password,user)
+      console.log('email and pass',email,password,setUsers)
       if(user){
         setAuth({
           ...user,

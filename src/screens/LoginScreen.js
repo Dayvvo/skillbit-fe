@@ -53,7 +53,8 @@ const LoginScreen = () => {
 
   const [submitting, setSubmitting] = useState(false);
 
-  const submit = () => {
+  const submit = (e) => {
+    e?.preventDefault();
     try {
       setSubmitting(true);
       console.log("login state", loginState);
@@ -67,7 +68,6 @@ const LoginScreen = () => {
     }
   };
 
-  console.log("auth val", auth);
   // check if authenticated
   if (auth?.token) {
     return <Redirect to={`/dashboard`} />;
@@ -86,7 +86,7 @@ const LoginScreen = () => {
       >
         <Img src="/assets/onboard-img.png" alt="onboarding-image" h='100vh' />
       </Box>
-      <Box p={{ base: "20px", lg: "40px" }}>
+      <Box as='form' onSubmit={submit} p={{ base: "20px", lg: "40px" }}>
         <Text
           className="poppins"
           color={"#090909"}
@@ -182,7 +182,7 @@ const LoginScreen = () => {
             color="#fff"
             fontSize={"16px"}
             loading={submitting}
-            onClick={submit}
+            type='submit'
           >
             Continue
           </Box>
