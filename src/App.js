@@ -20,6 +20,7 @@ import JobDetail from './screens/FindJob/JobDetail';
 import HomePage from './screens/HomePage';
 import UserProject from './screens/User/UserProject';
 import UserDashboard from './screens/User/UserDashboard';
+import HirerProject from './screens/Admin/hirerProject';
 
 const App = () => {
   
@@ -41,8 +42,9 @@ const App = () => {
               <PrivateRoute exact path="/" component={DashboardScreen} />
               <Route exact path="/" component={HomePage} />
               <Route path="/hirer/overview" component={DashboardScreen} />
+              <Route path="/hirer/applications" component={HirerProject} />
               <Route path="/user/overview" component={UserDashboard} />
-              <Route path="/user/project" component={UserProject} />
+              <Route path="/user/applications" component={UserProject} />
               <Route path="/find-work" component={FindWork} />
               <Route path="/job-detail" component={JobDetail} />
               <Route path="/login" component={LoginScreen} />

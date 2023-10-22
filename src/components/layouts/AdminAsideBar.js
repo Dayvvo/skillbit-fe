@@ -113,12 +113,12 @@ const AdminAsideBar = ({ children }) => {
               <CustomRouteLink
                 title={'Overview'}
                 icon={<MdSpaceDashboard />}
-                route={'/overview'}
+                route={'/hirer/overview'}
               />
               <CustomRouteLink
                 title={'Applications'}
                 icon={<MdWorkspaces />}
-                route={'/workspace'}
+                route={'/hirer/applications'}
               />
               <CustomRouteLink
                 title={'Transactions'}
