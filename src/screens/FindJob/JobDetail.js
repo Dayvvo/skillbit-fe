@@ -8,6 +8,7 @@ import { GrLocation } from 'react-icons/gr';
 import { SiOpera } from 'react-icons/si';
 import { FaFlag, FaUserFriends } from 'react-icons/fa';
 import { WorKCard } from './find-work';
+import Footer from '../../components/layouts/Footer';
 
 const JobDetail = () => {
 
@@ -39,7 +40,8 @@ const JobDetail = () => {
     const hoverEffect = {
         ":hover": {
             color: "white",
-            bgColor: "#FE4600"
+            bgColor: "#FE4600",
+            cursor: "pointer"
         }
     };
   return (
@@ -190,6 +192,8 @@ const JobDetail = () => {
                 <Text fontSize="20px" lineHeight="30px" fontWeight="500">See All</Text>
             </Box>
         </Box>
+
+        <Footer />
     </Box>
   )
 }
