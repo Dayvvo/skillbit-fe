@@ -15,7 +15,7 @@ import FindWork from './screens/FindJob/find-work';
 import PrivateRoute from './components/routing/PrivateRoute';
 import useLogin from './hooks/useLogin'
 import UserOnboardingDetails from './screens/teams/onboarding/userDetails';
-import DashboardModal from './components/dashboard/DashboardModal';
+// import DashboardModal from './components/dashboard/DashboardModal';
 import JobDetail from './screens/FindJob/JobDetail';
 import HomePage from './screens/HomePage';
 import UserProject from './screens/User/UserProject';
@@ -47,7 +47,7 @@ const App = () => {
               <Route path="/job-detail" component={JobDetail} />
               <Route path="/login" component={LoginScreen} />
               <Route path="/signup" component={RegisterScreen} />
-              <Route path="/modal" component={DashboardModal} />
+              {/* <Route path="/modal" component={DashboardModal} /> */}
               <Route component={NotFoundScreen} />
             </Switch>
           </Router>

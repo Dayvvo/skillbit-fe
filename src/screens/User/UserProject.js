@@ -16,6 +16,7 @@ import { MdVerified } from "react-icons/md";
 import { BsStarFill } from "react-icons/bs";
 import { TiLocation } from "react-icons/ti";
 import UserAsideBar from '../../components/layouts/UserAsideBar'
+import { useHistory } from 'react-router-dom/cjs/react-router-dom.min';
 
 const skillTag = () => {
   return (
@@ -56,15 +57,19 @@ const WorKCard = ({
   ratings,
   location,
 }) => {
+  const history = useHistory()
+  
   return (
     <VStack
       align={"start"}
+      cursor={'pointer'}
       gap="10px"
       p="20px"
       borderRadius={"20px"}
       border={"1px solid #DBE1E7"}
       mt="20px"
       w={{ base: "full", lg: "1000px" }}
+      onClick={() => history.push('/job-detail')}
     >
       <Text
         className="poppins"
