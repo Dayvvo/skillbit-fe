@@ -6,14 +6,18 @@ const Footer = () => {
     <>
       <Box
         bgColor={"#6F1E00"}
-        p="100px 120px"
-        my="30px"
-        mx="20px"
-        borderRadius={"20px"}
+        p={{ base: "20px", lg: "100px 120px" }}
+        my={{ base: 0, lg: "30px" }}
+        mx={{ base: 0, lg: "20px" }}
+        borderRadius={{ base: 0, lg: "20px" }}
       >
-        <Flex align={"center"} justify={"space-between"}>
+        <Flex
+          flexDir={{ base: "column", lg: "row" }}
+          align={"center"}
+          justify={"space-between"}
+        >
           <VStack align={"start"} gap="20px">
-            <HStack>
+            <HStack align={"center"} justify="center">
               <Img src="/skillbit-logo.svg" alt="logo" />
               <Text
                 color="#fff"
@@ -26,14 +30,25 @@ const Footer = () => {
                 Skillbit
               </Text>
             </HStack>
-            <Text className="poppins" fontSize={"14px"} color="#fff" w="308px">
+            <Text
+              className="poppins"
+              fontSize={"14px"}
+              color="#fff"
+              w="308px"
+              textAlign={{ base: "center", lg: "left" }}
+            >
               SkillBit: Your Gateway to Effortlessly Streamlining Bitcoin Hiring
               and Executing Secure Bitcoin (BTC) Transactions for African
               Bitcoin Talents
             </Text>
           </VStack>
-          <Flex align={"start"} gap="80px">
-            <VStack align={"start"} gap="20px">
+          <Flex
+            flexDir={{ base: "column", lg: "row" }}
+            align={{ base: "center", lg: "start" }}
+            gap={{ base: "20px", lg: "80px" }}
+            mt={{ base: "20px", lg: 0 }}
+          >
+            <Flex flexDir={'column'} align={{ base: "center", lg: "start" }} justify={'center'} gap="20px">
               <Text
                 className="poppins"
                 color="#DAE0EF"
@@ -50,11 +65,15 @@ const Footer = () => {
                 fontWeight={400}
                 fontSize={"16px"}
               >
-                <Text>Trust, Safety & Security</Text>
-                <Text>Find Work</Text>
+                <Text textAlign={{ base: "center", lg: "left" }}>
+                  Trust, Safety & Security
+                </Text>
+                <Text textAlign={{ base: "center", lg: "left" }}>
+                  Find Work
+                </Text>
                 <Text>Find Talent</Text>
               </VStack>
-            </VStack>
+            </Flex>
             <VStack align={"start"} gap="20px">
               <Text
                 className="poppins"
@@ -100,7 +119,7 @@ const Footer = () => {
             </VStack>
           </Flex>
         </Flex>
-        <Text className="poppins" fontSize={"14px"} color="#fff" mt="40px">
+        <Text className="poppins" fontSize={"14px"} color="#fff" mt="40px" textAlign={{ base: "center", lg: "left" }}>
           &copy; {new Date().getFullYear()} SkillBit. All rights reserved.
         </Text>
       </Box>

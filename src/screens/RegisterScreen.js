@@ -1,4 +1,4 @@
-import { Box, Flex, Input, Text } from "@chakra-ui/react";
+import { Box, Flex, Img, Input, Text } from "@chakra-ui/react";
 import React, { useState } from "react";
 import { NavLink } from "react-router-dom";
 import { AiOutlineEye } from "react-icons/ai";
@@ -23,16 +23,18 @@ const RegisterScreen = () => {
 
   return (
     <>
-      <TopNav />
       <Flex
         w={{ base: "full", lg: "1110px" }}
         m={{ base: "20px 0", lg: "30px auto" }}
+        align={'center'}
       >
         <Box
           bgColor={"#d9d9d9"}
           w="500px"
           display={{ base: "none", lg: "block" }}
-        ></Box>
+        >
+          <Img src="/assets/onboard-img.png" alt="onboarding-image" />
+        </Box>
         <Box p={{ base: "20px", lg: "40px" }}>
           <Text
             className="poppins"

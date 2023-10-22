@@ -319,13 +319,13 @@ const HomePage = () => {
         bgImage={"/assets/cta-img.png"}
         h="400px"
       >
-        <Text color="#fff" fontSize={"40px"} fontWeight={600}>
+        <Text color="#fff" fontSize={{ base: '20px', lg: "40px" }} fontWeight={600}>
           Discover and join{" "}
           <Text as={"span"} color="var(--pink)">
             SkillBit
           </Text>
         </Text>
-        <Text fontSize={'16px'} fontWeight={400} color='#fff'>
+        <Text fontSize={'16px'} fontWeight={400} color='#fff' textAlign={{ base: "center", lg: "left" }}>
           Connect with skilled Bitcoin professionals and revolutionize your hiring process
         </Text>
         <HStack gap='20px'>
