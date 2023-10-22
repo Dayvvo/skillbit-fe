@@ -3,7 +3,7 @@ import { Redirect } from "react-router-dom";
 import { backendURL } from "../utils/setEnv";
 import useAuthActions from "../hooks/useAuth";
 import { renderJSX } from "../utils/helpers";
-import { Box, Flex, Text } from "@chakra-ui/react";
+import { Box, Flex, Img, Text } from "@chakra-ui/react";
 import Btn from "../widgets/Button";
 import Input from "../widgets/Input";
 import useConnections from "../hooks/useConnections";
@@ -75,14 +75,16 @@ const LoginScreen = () => {
 
   return (
     <Flex
-      w={{ base: "full", lg: "1110px" }}
+      w={{ base: "full", lg: "900px" }}
       m={{ base: "20px 0", lg: "30px auto" }}
     >
       <Box
         bgColor={"#d9d9d9"}
-        w="500px"
+        h='100vh'
         display={{ base: "none", lg: "block" }}
-      ></Box>
+      >
+        <Img src="/assets/onboard-img.png" alt="onboarding-image" h='100vh' />
+      </Box>
       <Box p={{ base: "20px", lg: "40px" }}>
         <Text
           className="poppins"
@@ -160,7 +162,7 @@ const LoginScreen = () => {
           gap={{ base: "10px", lg: "20px" }}
           mt={{ base: "40px", lg: "80px" }}
         >
-          <Btn
+          <Box
             as="button"
             p="10px 50px"
             border={"1px solid #FE4600"}
@@ -170,8 +172,9 @@ const LoginScreen = () => {
             fontSize={"16px"}
           >
             Go back
-          </Btn>
-          <Btn
+          </Box>
+          <Box
+            as="button"
             p="10px 50px"
             borderRadius={"4px"}
             bgColor={"#FE4600"}
@@ -181,7 +184,7 @@ const LoginScreen = () => {
             onClick={submit}
           >
             Continue
-          </Btn>
+          </Box>
         </Flex>
         <Flex align={"center"} justify={"center"} gap="6px" mt="10px">
           <Text
