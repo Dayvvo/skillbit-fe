@@ -17,6 +17,7 @@ import useLogin from './hooks/useLogin'
 import UserOnboardingDetails from './screens/teams/onboarding/userDetails';
 import JobDetail from './screens/FindJob/JobDetail';
 import HomePage from './screens/HomePage';
+import MakePaymentModal from './screens/Admin/MakePaymentModal';
 
 const App = () => {
   
@@ -42,6 +43,7 @@ const App = () => {
               <Route path="/job-detail" component={JobDetail} />
               <Route path="/login" component={LoginScreen} />
               <Route path="/signup" component={RegisterScreen} />
+              <Route path="/payment" component={MakePaymentModal} />
               <Route component={NotFoundScreen} />
             </Switch>
           </Router>
