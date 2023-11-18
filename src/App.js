@@ -5,7 +5,7 @@ import theme from './Theme';
 import './App.css';
 import './sass-styles.scss';
 import NotFoundScreen from './screens/NotFoundScreen';
-import { MenuProvider } from './hooks/MenuProvider';
+import { MenuProvider } from '../../skillbit-frontend/src/hooks/MenuProvider';
 import { Helmet } from 'react-helmet';
 import RegisterScreen from './screens/RegisterScreen';
 import DashboardScreen from './screens/DashboardScreen';
@@ -14,7 +14,6 @@ import ModalComponent from './components/layouts/Modal';
 import FindWork from './screens/FindJob/find-work';
 import PrivateRoute from './components/routing/PrivateRoute';
 import useLogin from './hooks/useLogin'
-// import DashboardModal from './components/dashboard/DashboardModal';
 import JobDetail from './screens/FindJob/JobDetail';
 import HomePage from './screens/HomePage';
 import UserProject from './screens/User/UserProject';

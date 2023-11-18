@@ -14,7 +14,7 @@ import {
   Img,
 } from '@chakra-ui/react';
 import NavLayout from './NavLayout';
-import { useMenu } from '../../hooks/MenuProvider';
+import { useMenu } from '../../../../skillbit-frontend/src/hooks/MenuProvider';
 
 import { NavLink, useLocation } from 'react-router-dom';
 import { BiMessageDots } from 'react-icons/bi';

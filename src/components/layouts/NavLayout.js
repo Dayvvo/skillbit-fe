@@ -4,7 +4,7 @@ import { SiHomeadvisor } from "react-icons/si"
 import { Link } from "react-router-dom"
 import UserDropdown from "./UserDropdown"
 import useAuthActions from "../../hooks/useAuth"
-import { useMenu } from "../../hooks/MenuProvider"
+import { useMenu } from "../../../../skillbit-frontend/src/hooks/MenuProvider"
 import { CgMenuRightAlt } from "react-icons/cg"
 import { HStack, Stack, Show, Box, Text, Flex } from "@chakra-ui/react"
 
